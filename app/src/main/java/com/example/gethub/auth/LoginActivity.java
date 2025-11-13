@@ -1,16 +1,18 @@
 package com.example.gethub.auth;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Toast;
-import com.example.gethub.databinding.ActivityLoginBinding;
-// import com.example.gethub.HomeActivity; // Placeholder for main app screen
 
-import java.util.function.Consumer;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.gethub.MainActivity;
+import com.example.gethub.databinding.ActivityLoginBinding;
+import com.example.gethub.models.User;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,84 +22,72 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Uses ViewBinding based on your layout name (ActivityLoginBinding)
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Initialize ViewModel
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
-        // 1. LiveData Observers
-        loginViewModel.getLoginState().observe(this, state -> {
-            if (state instanceof LoginViewModel.LoginState.Error) {
-                // Show general error message (e.g., Invalid credentials)
-                binding.errLogin.setText(((LoginViewModel.LoginState.Error) state).getMessage());
-                binding.errLogin.setVisibility(android.view.View.VISIBLE); // Make error visible
-            } else if (state instanceof LoginViewModel.LoginState.Success) {
-                Toast.makeText(this, "Login Successful! Redirecting...", Toast.LENGTH_SHORT).show();
-                // Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                // startActivity(intent);
-                // finish();
-            } else if (state instanceof LoginViewModel.LoginState.Idle) {
-                // Clear general error when returning to Idle
-                binding.errLogin.setText("");
-                binding.errLogin.setVisibility(android.view.View.GONE); // Hide error
+        // Retrieve user data from RegistrationActivity and add to the list
+        if (getIntent().hasExtra("USER_DATA")) {
+            User registeredUser = getIntent().getParcelableExtra("USER_DATA");
+            loginViewModel.addRegisteredUser(registeredUser);
+        }
+
+        setupInputListeners();
+        setupClickListeners();
+        observeViewModel();
+    }
+
+    private void setupInputListeners() {
+        binding.etStudentID.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                loginViewModel.onStudentIdChanged(s.toString());
             }
+            @Override
+            public void afterTextChanged(Editable s) {}
         });
 
-        loginViewModel.getIsLoginButtonEnabled().observe(this, enabled -> {
-            binding.btnLogin.setEnabled(enabled);
-        });
-
-        // 2. Real-time Input Listeners (etStudentID and etPassword)
-        setupTextWatcher(binding.etStudentID, loginViewModel::onUsernameChanged);
-        setupTextWatcher(binding.etPassword, loginViewModel::onPasswordChanged);
-
-        // 3. Button and Link Click Handlers
-
-        // Main Login Button
-        binding.btnLogin.setOnClickListener(v -> loginViewModel.attemptLogin());
-
-        // Forgot Password Link
-        binding.tvForgotPassword.setOnClickListener(v -> {
-            Toast.makeText(this, "Opening Forgot Password Screen...", Toast.LENGTH_SHORT).show();
-        });
-
-        // Sign-up Link
-        binding.tvRegisterLink.setOnClickListener(v -> {
-            Toast.makeText(this, "Opening Registration...", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class); // Placeholder
-            startActivity(intent);
-        });
-
-        // Social Login Buttons
-        binding.btnGoogle.setOnClickListener(v -> {
-            Toast.makeText(this, "Initiating Google Sign-in...", Toast.LENGTH_SHORT).show();
-        });
-
-        binding.btnApple.setOnClickListener(v -> {
-            Toast.makeText(this, "Initiating Apple Sign-in...", Toast.LENGTH_SHORT).show();
+        binding.etPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                loginViewModel.onPasswordChanged(s.toString());
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
         });
     }
 
-    /**
-     * Helper method to reduce boilerplate for TextWatchers used for real-time validation.
-     * @param editText The EditText view to watch.
-     * @param consumer The ViewModel function to call with the new text.
-     */
-    private void setupTextWatcher(android.widget.EditText editText, Consumer<String> consumer) {
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+    private void setupClickListeners() {
+        binding.btnLogin.setOnClickListener(v -> loginViewModel.attemptLogin());
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                consumer.accept(s.toString());
+        binding.tvRegisterLink.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void observeViewModel() {
+        loginViewModel.getIsLoginButtonEnabled().observe(this, isEnabled -> {
+            binding.btnLogin.setEnabled(isEnabled);
+        });
+
+        loginViewModel.getLoginState().observe(this, loginState -> {
+            if (loginState instanceof LoginViewModel.LoginState.Success) {
+                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Prevent returning to the login screen
+            } else if (loginState instanceof LoginViewModel.LoginState.Error) {
+                binding.errLogin.setText(((LoginViewModel.LoginState.Error) loginState).getMessage());
+                binding.errLogin.setVisibility(View.VISIBLE);
+            } else {
+                binding.errLogin.setVisibility(View.GONE);
             }
-
-            @Override
-            public void afterTextChanged(Editable s) { }
         });
     }
 }

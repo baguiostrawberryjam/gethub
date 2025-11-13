@@ -43,7 +43,7 @@ public class RegistrationPage2Fragment extends Fragment {
         setupTextWatcher(binding.etOTP, viewModel::onOTPChanged);
 
         // --- 2. Setup Button Click Listener ---
-        binding.btnSendCode.setOnClickListener(v -> {
+        binding.tvSendCode.setOnClickListener(v -> {
             // This calls the ViewModel function to validate the email, generate OTP, and trigger the AlertDialog in the Activity
             viewModel.generateAndSendOtp();
         });
@@ -75,7 +75,7 @@ public class RegistrationPage2Fragment extends Fragment {
         viewModel.getIsOtpSent().observe(getViewLifecycleOwner(), isSent -> {
             binding.etOTP.setEnabled(isSent);
             // If OTP is sent, change the "Send Code" button text to "Resend Code"
-            binding.btnSendCode.setText(isSent ? "Resend Code" : "Send Code");
+            binding.tvSendCode.setText(isSent ? "Resend Code" : "Send Code");
         });
 
         // --- 4. Load existing data (for back navigation) ---

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="campus_placeholder">Select a campus/branch</string>
+    <string name="college_placeholder">Select a college</string>
+    <string name="course_placeholder">Select a course/program</string>
+
     <!-- Page 5: Campus Branch -->
     <string-array name="spCampusBranch_choices">
+        <item>@string/campus_placeholder</item>
         <item>Main Campus (Malolos)</item>
         <item>Bustos Campus</item>
         <item>Meneses Campus</item>
@@ -12,6 +17,7 @@
 
     <!-- Page 5: College/Faculty -->
     <string-array name="spCollege_choices">
+        <item>@string/college_placeholder</item>
         <item>College of Architecture and Fine Arts (CAFA)</item>
         <item>College of Arts and Letters (CAL)</item>
         <item>College of Business Education and Accountancy (CBEA)</item>

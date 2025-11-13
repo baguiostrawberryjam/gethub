@@ -34,11 +34,11 @@
 
         <Spinner
             android:id="@+id/spCampusBranch"
-            style="@style/SpinnerItemStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown"
+            android:dropDownHeight="240dp"/>
 
         <TextView
             android:id="@+id/errCampusBranch"
@@ -54,11 +54,11 @@
 
         <Spinner
             android:id="@+id/spCollege"
-            style="@style/SpinnerItemStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown"
+            android:dropDownHeight="240dp"/>
 
         <TextView
             android:id="@+id/errCollege"
@@ -74,11 +74,11 @@
 
         <Spinner
             android:id="@+id/spCourseProgram"
-            style="@style/SpinnerItemStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
-            android:spinnerMode="dropdown"/>
+            android:spinnerMode="dropdown"
+            android:dropDownHeight="240dp"/>
 
         <TextView
             android:id="@+id/errCourseProgram"
