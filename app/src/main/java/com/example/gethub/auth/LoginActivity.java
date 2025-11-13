@@ -67,8 +67,8 @@ public class LoginActivity extends AppCompatActivity {
         // Sign-up Link
         binding.tvRegisterLink.setOnClickListener(v -> {
             Toast.makeText(this, "Opening Registration...", Toast.LENGTH_SHORT).show();
-            // Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class); // Placeholder
-            // startActivity(intent);
+            Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class); // Placeholder
+            startActivity(intent);
         });
 
         // Social Login Buttons
