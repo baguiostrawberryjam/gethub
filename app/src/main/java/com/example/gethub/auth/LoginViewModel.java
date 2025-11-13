@@ -1,3 +1,4 @@
+// File: com.example.gethub.auth.LoginViewModel.java
 package com.example.gethub.auth;
 
 import androidx.lifecycle.LiveData;
@@ -20,7 +21,12 @@ public class LoginViewModel extends ViewModel {
     // --- Login State sealed class/interface to represent outcomes ---
     public interface LoginState {
         class Idle implements LoginState {}
-        class Success implements LoginState {}
+        // **UPDATED:** Success now carries the User object
+        class Success implements LoginState {
+            private final User user;
+            public Success(User user) { this.user = user; }
+            public User getUser() { return user; }
+        }
         class Error implements LoginState {
             private final String message;
             public Error(String message) { this.message = message; }
@@ -83,7 +89,11 @@ public class LoginViewModel extends ViewModel {
 
         // Fallback for default admin login
         if (id.equals("admin") && pass.equals("1234")) {
-            loginState.setValue(new LoginState.Success());
+            // **UPDATED:** Create a dummy user object for admin fallback
+            User adminUser = new User();
+            adminUser.setFirstName("Admin");
+            adminUser.setStudentId("admin");
+            loginState.setValue(new LoginState.Success(adminUser));
             return;
         }
 
@@ -91,7 +101,8 @@ public class LoginViewModel extends ViewModel {
         boolean foundUser = false;
         for (User user : registeredUsers) {
             if (id.equals(user.getStudentId()) && pass.equals(user.getPassword())) {
-                loginState.setValue(new LoginState.Success());
+                // **UPDATED:** Pass the found User object to the Success state
+                loginState.setValue(new LoginState.Success(user));
                 foundUser = true;
                 break;
             }
