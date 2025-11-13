@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/svPage4"
+    android:fillViewport="true"
+    tools:context=".auth.RegistrationPage4Fragment">
+
+    <LinearLayout
+        android:id="@+id/llPage4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact &amp; Address (4/5)"
+            android:textSize="24sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Contact Number Input -->
+        <TextView
+            android:id="@+id/tvContactNumber"
+            style="@style/InputLabelStyle"
+            android:text="CONTACT NUMBER (Required)"/>
+
+        <EditText
+            android:id="@+id/etContactNumber"
+            style="@style/InputEditTextStyle"
+            android:hint="e.g., 09XX-XXX-XXXX"
+            android:inputType="phone"
+            android:maxLength="11"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errContactNumber"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="24dp"
+            tools:text="Contact number must be 11 digits."/>
+
+        <!-- Address Group Title -->
+        <TextView
+            android:id="@+id/tvAddressHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PERMANENT ADDRESS (Required)"
+            android:textSize="18sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Address No. / Street Input -->
+        <TextView
+            android:id="@+id/tvAddressNo"
+            style="@style/InputLabelStyle"
+            android:text="HOUSE/UNIT NO. (Required)"/>
+
+        <EditText
+            android:id="@+id/etAddressNo"
+            style="@style/InputEditTextStyle"
+            android:hint="House/Unit No."
+            android:inputType="text"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errAddressNo"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="House/Unit number is required."/>
+
+        <TextView
+            android:id="@+id/tvAddressStreet"
+            style="@style/InputLabelStyle"
+            android:text="STREET / SUBDIVISION (Required)"/>
+
+        <EditText
+            android:id="@+id/etAddressStreet"
+            style="@style/InputEditTextStyle"
+            android:hint="Street name or subdivision"
+            android:inputType="textPostalAddress"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errAddressStreet"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Street is required."/>
+
+        <!-- Barangay Input -->
+        <TextView
+            android:id="@+id/tvAddressBarangay"
+            style="@style/InputLabelStyle"
+            android:text="BARANGAY (Required)"/>
+
+        <EditText
+            android:id="@+id/etAddressBarangay"
+            style="@style/InputEditTextStyle"
+            android:hint="Barangay"
+            android:inputType="textPostalAddress"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errAddressBarangay"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Barangay is required."/>
+
+        <!-- City Input -->
+        <TextView
+            android:id="@+id/tvAddressCity"
+            style="@style/InputLabelStyle"
+            android:text="CITY / MUNICIPALITY (Required)"/>
+
+        <EditText
+            android:id="@+id/etAddressCity"
+            style="@style/InputEditTextStyle"
+            android:hint="City or Municipality"
+            android:inputType="textPostalAddress"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errAddressCity"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="City is required."/>
+
+        <!-- Province Input -->
+        <TextView
+            android:id="@+id/tvAddressProvince"
+            style="@style/InputLabelStyle"
+            android:text="PROVINCE (Required)"/>
+
+        <EditText
+            android:id="@+id/etAddressProvince"
+            style="@style/InputEditTextStyle"
+            android:hint="Province"
+            android:inputType="textPostalAddress"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errAddressProvince"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Province is required."/>
+
+    </LinearLayout>
+</ScrollView>

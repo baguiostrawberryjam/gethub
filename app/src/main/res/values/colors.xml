@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="gray">#FF9E9E9E</color>
+    <color name="blue">#FF151B54</color>
+
+    <!-- Design System Colors -->
+    <color name="primary_purple">#FF5762D5</color>
+    <color name="secondary_sky">#FF5FBFF9</color>
+    <color name="neutral_lavender">#FFEFE9F4</color>
+    <color name="neutral_black">#FF171D1C</color>
+    <color name="neutral_deep">#FF0C120C</color>
+
+    <!-- Disabled Colors -->
+    <color name="disabled_primary_purple">#805762D5</color>
+    <color name="disabled_secondary_sky">#805FBFF9</color>
 </resources>

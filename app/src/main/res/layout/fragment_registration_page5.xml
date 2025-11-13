@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/svPage5"
+    android:fillViewport="true"
+    tools:context=".auth.RegistrationPage5Fragment">
+
+    <LinearLayout
+        android:id="@+id/llPage5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Academic Details (5/5)"
+            android:textSize="24sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Campus Branch Spinner -->
+        <TextView
+            android:id="@+id/tvCampusBranch"
+            style="@style/InputLabelStyle"
+            android:text="CAMPUS / BRANCH (Required)"/>
+
+        <Spinner
+            android:id="@+id/spCampusBranch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:spinnerMode="dropdown"
+            android:dropDownHeight="240dp"/>
+
+        <TextView
+            android:id="@+id/errCampusBranch"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Please select your Campus/Branch."/>
+
+        <!-- College Spinner -->
+        <TextView
+            android:id="@+id/tvCollege"
+            style="@style/InputLabelStyle"
+            android:text="COLLEGE (Required)"/>
+
+        <Spinner
+            android:id="@+id/spCollege"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:spinnerMode="dropdown"
+            android:dropDownHeight="240dp"/>
+
+        <TextView
+            android:id="@+id/errCollege"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Please select your College."/>
+
+        <!-- Course/Program Spinner (Dynamically Loaded) -->
+        <TextView
+            android:id="@+id/tvCourseProgram"
+            style="@style/InputLabelStyle"
+            android:text="COURSE / PROGRAM (Required)"/>
+
+        <Spinner
+            android:id="@+id/spCourseProgram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:spinnerMode="dropdown"
+            android:dropDownHeight="240dp"/>
+
+        <TextView
+            android:id="@+id/errCourseProgram"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Please select your Course/Program."/>
+
+    </LinearLayout>
+</ScrollView>

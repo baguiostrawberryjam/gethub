@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/svPage1"
+    android:fillViewport="true"
+    tools:context=".auth.RegistrationPage1Fragment">
+
+    <LinearLayout
+        android:id="@+id/llPage1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Personal Information (1/5)"
+            android:textSize="24sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- First Name Input -->
+        <TextView
+            android:id="@+id/tvFirstName"
+            style="@style/InputLabelStyle"
+            android:text="FIRST NAME (Required)"/>
+
+        <EditText
+            android:id="@+id/etFirstName"
+            style="@style/InputEditTextStyle"
+            android:hint="Enter first name"
+            android:inputType="textPersonName|textCapWords"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errFirstName"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="First name cannot be empty."/>
+
+        <!-- Middle Name Input -->
+        <TextView
+            android:id="@+id/tvMiddleName"
+            style="@style/InputLabelStyle"
+            android:text="MIDDLE NAME (Optional)"/>
+
+        <EditText
+            android:id="@+id/etMiddleName"
+            style="@style/InputEditTextStyle"
+            android:hint="Enter middle name"
+            android:inputType="textPersonName|textCapWords"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Last Name Input -->
+        <TextView
+            android:id="@+id/tvLastName"
+            style="@style/InputLabelStyle"
+            android:text="LAST NAME (Required)"/>
+
+        <EditText
+            android:id="@+id/etLastName"
+            style="@style/InputEditTextStyle"
+            android:hint="Enter last name"
+            android:inputType="textPersonName|textCapWords"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errLastName"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Last name is required."/>
+
+    </LinearLayout>
+</ScrollView>

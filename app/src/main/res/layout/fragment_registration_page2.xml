@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/svPage2"
+    android:fillViewport="true"
+    tools:context=".auth.RegistrationPage2Fragment">
+
+    <LinearLayout
+        android:id="@+id/llPage2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact &amp; Verification (2/5)"
+            android:textSize="24sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Email Input -->
+        <TextView
+            android:id="@+id/tvEmail"
+            style="@style/InputLabelStyle"
+            android:text="EMAIL ADDRESS (Required)"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            style="@style/InputEditTextStyle"
+            android:hint="Enter valid email address"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:id="@+id/errEmail"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Please enter a valid email address."/>
+
+        <!-- OTP Send Button (Updated ID to btnSendCode) -->
+        <TextView
+            android:id="@+id/tvSendCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send Code"
+            android:gravity="end"
+            android:textSize="14sp"
+            android:textColor="@color/primary_purple"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            android:paddingVertical="4dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- OTP Code Input (Updated ID to etOTP) -->
+        <TextView
+            android:id="@+id/tvOtpCode"
+            style="@style/InputLabelStyle"
+            android:text="OTP CODE (Required)"/>
+
+        <EditText
+            android:id="@+id/etOTP"
+            style="@style/InputEditTextStyle"
+            android:hint="Enter 6-digit code"
+            android:inputType="number"
+            android:maxLength="6"
+            android:layout_marginBottom="0dp"/>
+
+        <!-- OTP Error Text (Updated ID to errOTP) -->
+        <TextView
+            android:id="@+id/errOTP"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="OTP must be 6 digits and verified."/>
+
+    </LinearLayout>
+</ScrollView>

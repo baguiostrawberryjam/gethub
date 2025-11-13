@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="campus_placeholder">Select a campus/branch</string>
+    <string name="college_placeholder">Select a college</string>
+    <string name="course_placeholder">Select a course/program</string>
+
+    <!-- Page 5: Campus Branch -->
+    <string-array name="spCampusBranch_choices">
+        <item>@string/campus_placeholder</item>
+        <item>Main Campus (Malolos)</item>
+        <item>Bustos Campus</item>
+        <item>Meneses Campus</item>
+        <item>Sarmiento Campus</item>
+        <item>Hagonoy Campus</item>
+        <item>San Rafael Campus</item>
+    </string-array>
+
+    <!-- Page 5: College/Faculty -->
+    <string-array name="spCollege_choices">
+        <item>@string/college_placeholder</item>
+        <item>College of Architecture and Fine Arts (CAFA)</item>
+        <item>College of Arts and Letters (CAL)</item>
+        <item>College of Business Education and Accountancy (CBEA)</item>
+        <item>College of Criminal Justice Education (CCJE)</item>
+        <item>College of Hospitality and Tourism Management (CHTM)</item>
+        <item>College of Information and Communications Technology (CICT)</item>
+        <item>College of Industrial Technology (CIT)</item>
+        <item>College of Law (CLaw)</item>
+        <item>College of Nursing (CN)</item>
+        <item>College of Engineering (COE)</item>
+        <item>College of Education (COED)</item>
+        <item>College of Science (CS)</item>
+        <item>College of Sports, Exercise and Recreation (CSER)</item>
+        <item>College of Social Sciences and Philosophy (CSSP)</item>
+        <item>Graduate School (GS)</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CAFA -->
+    <string-array name="spCourse_CAFA">
+        <item>Bachelor of Fine Arts Major in Visual Communication</item>
+        <item>Bachelor of Landscape Architecture</item>
+        <item>Bachelor of Science in Architecture</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CAL -->
+    <string-array name="spCourse_CAL">
+        <item>Bachelor of Arts in Broadcasting</item>
+        <item>Bachelor of Arts in Journalism</item>
+        <item>Bachelor of Performing Arts (Theater Track)</item>
+        <item>Batsilyer ng Sining sa Malikhaing Pagsulat</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CBEA -->
+    <string-array name="spCourse_CBEA">
+        <item>Bachelor of Science in Accountancy</item>
+        <item>Bachelor of Science in Business Administration Major in Business Economics</item>
+        <item>Bachelor of Science in Business Administration Major in Financial Management</item>
+        <item>Bachelor of Science in Business Administration Major in Marketing Management</item>
+        <item>Bachelor of Science in Entrepreneurship</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CCJE -->
+    <string-array name="spCourse_CCJE">
+        <item>Bachelor of Arts in Legal Management</item>
+        <item>Bachelor of Science in Criminology</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CHTM -->
+    <string-array name="spCourse_CHTM">
+        <item>Bachelor of Science in Hospitality Management</item>
+        <item>Bachelor of Science in Tourism Management</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CICT -->
+    <string-array name="spCourse_CICT">
+        <item>Bachelor of Library and Information Science</item>
+        <item>Bachelor of Science in Information System</item>
+        <item>Bachelor of Science in Information Technology</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CIT -->
+    <string-array name="spCourse_CIT">
+        <item>Bachelor of Industrial Technology with specialization in Automotive</item>
+        <item>Bachelor of Industrial Technology with specialization in Computer</item>
+        <item>Bachelor of Industrial Technology with specialization in Drafting</item>
+        <item>Bachelor of Industrial Technology with specialization in Electrical</item>
+        <item>Bachelor of Industrial Technology with specialization in Electronics &amp; Communication Technology</item>
+        <item>Bachelor of Industrial Technology with specialization in Electronics Technology</item>
+        <item>Bachelor of Industrial Technology with specialization in Food Processing Technology</item>
+        <item>Bachelor of Industrial Technology with specialization in Heating, Ventilation, Air Conditioning and Refrigeration Technology (HVACR)</item>
+        <item>Bachelor of Industrial Technology with specialization in Mechanical</item>
+        <item>Bachelor of Industrial Technology with specialization in Mechatronics Technology</item>
+        <item>Bachelor of Industrial Technology with specialization in Welding Technology</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CLaw -->
+    <string-array name="spCourse_CLaw">
+        <item>Bachelor of Laws</item>
+        <item>Juris Doctor</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CN -->
+    <string-array name="spCourse_CN">
+        <item>Bachelor of Science in Nursing</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - COE -->
+    <string-array name="spCourse_COE">
+        <item>Bachelor of Science in Civil Engineering</item>
+        <item>Bachelor of Science in Computer Engineering</item>
+        <item>Bachelor of Science in Electrical Engineering</item>
+        <item>Bachelor of Science in Electronics Engineering</item>
+        <item>Bachelor of Science in Industrial Engineering</item>
+        <item>Bachelor of Science in Manufacturing Engineering</item>
+        <item>Bachelor of Science in Mechanical Engineering</item>
+        <item>Bachelor of Science in Mechatronics Engineering</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - COED -->
+    <string-array name="spCourse_COED">
+        <item>Bachelor of Early Childhood Education</item>
+        <item>Bachelor of Elementary Education</item>
+        <item>Bachelor of Physical Education</item>
+        <item>Bachelor of Secondary Education Major in English minor in Mandarin</item>
+        <item>Bachelor of Secondary Education Major in Filipino</item>
+        <item>Bachelor of Secondary Education Major in Mathematics</item>
+        <item>Bachelor of Secondary Education Major in Sciences</item>
+        <item>Bachelor of Secondary Education Major in Social Studies</item>
+        <item>Bachelor of Secondary Education Major in Values Education</item>
+        <item>Bachelor of Technology and Livelihood Education Major in Home Economics</item>
+        <item>Bachelor of Technology and Livelihood Education Major in Industrial Arts</item>
+        <item>Bachelor of Technology and Livelihood Education Major in Information and Communication Technology</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CS -->
+    <string-array name="spCourse_CS">
+        <item>Bachelor of Science in Biology</item>
+        <item>Bachelor of Science in Environmental Science</item>
+        <item>Bachelor of Science in Food Technology</item>
+        <item>Bachelor of Science in Math with Specialization in Applied Statistics</item>
+        <item>Bachelor of Science in Math with Specialization in Business Applications</item>
+        <item>Bachelor of Science in Math with Specialization in Computer Science</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CSER -->
+    <string-array name="spCourse_CSER">
+        <item>Bachelor of Science in Exercise and Sports Sciences with specialization in Fitness and Sports Coaching</item>
+        <item>Bachelor of Science in Exercise and Sports Sciences with specialization in Fitness and Sports Management</item>
+        <item>Certificate of Physical Education</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - CSSP -->
+    <string-array name="spCourse_CSSP">
+        <item>Bachelor of Public Administration</item>
+        <item>Bachelor of Science in Psychology</item>
+        <item>Bachelor of Science in Social Work</item>
+    </string-array>
+
+    <!-- Page 5: Course/Program - GS -->
+    <string-array name="spCourse_GS">
+        <item>Doctor of Education</item>
+        <item>Doctor of Philosophy</item>
+        <item>Doctor of Public Administration</item>
+        <item>Master in Business Administration</item>
+        <item>Master in Physical Education</item>
+        <item>Master in Public Administration</item>
+        <item>Master of Arts in Education</item>
+        <item>Master of Engineering Program</item>
+        <item>Master of Industrial Technology Management</item>
+        <item>Master of Information Technology</item>
+        <item>Master of Manufacturing Engineering</item>
+        <item>Master of Science in Civil Engineering</item>
+        <item>Master of Science in Computer Engineering</item>
+        <item>Master of Science in Electronics and Communications Engineering</item>
+    </string-array>
+</resources>

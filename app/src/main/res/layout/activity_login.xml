@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center"
+    tools:context=".auth.LoginActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textColor="@color/neutral_deep"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Username Input -->
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="STUDENT ID"
+        android:textSize="16sp"
+        android:textColor="@color/neutral_deep"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/etStudentID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your Student ID"
+        android:inputType="text"
+        android:background="@drawable/sh_rounded_input"
+        android:textSize="16sp"
+        android:textColor="@color/neutral_deep"
+        android:layout_marginHorizontal="16dp"
+        android:padding="16dp"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Password Input -->
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PASSWORD"
+        android:textSize="16sp"
+        android:textColor="@color/neutral_deep"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter password"
+        android:inputType="textPassword"
+        android:background="@drawable/sh_rounded_input"
+        android:textSize="16sp"
+        android:textColor="@color/neutral_deep"
+        android:layout_marginHorizontal="16dp"
+        android:padding="16dp"/>
+
+    <!-- Real-time Error Message Display -->
+    <TextView
+        android:id="@+id/errLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="gone"/>
+
+    <!-- Forgot Password Link -->
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forgot password?"
+        android:gravity="end"
+        android:textSize="14sp"
+        android:textColor="@color/primary_purple"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="4dp"
+        android:paddingVertical="4dp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:background="@drawable/sel_button_login"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Separated Registration Prompt and Link -->
+    <LinearLayout
+        android:id="@+id/llRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginBottom="32dp">
+
+        <TextView
+            android:id="@+id/tvRegisterPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account? "
+            android:textSize="14sp"
+            android:textColor="@color/neutral_deep"
+            android:paddingVertical="4dp" />
+
+        <TextView
+            android:id="@+id/tvRegisterLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign-up"
+            android:textSize="14sp"
+            android:textColor="@color/primary_purple"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingVertical="4dp" />
+
+    </LinearLayout>
+
+    <!-- OR Divider Line (New Component 1) -->
+    <LinearLayout
+        android:id="@+id/llDivider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" OR "
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:paddingHorizontal="8dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/gray" />
+    </LinearLayout>
+
+    <!-- Continue with Google Button (New Component 2) -->
+    <!-- Note: You'll need to provide the 'ic_google' drawable -->
+    <Button
+        android:id="@+id/btnGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue with Google"
+        android:textColor="@color/neutral_deep"
+        android:textSize="16sp"
+        android:background="@drawable/sh_social_button_border"
+        android:textAllCaps="false"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        android:drawableStart="@drawable/ic_google"
+        android:paddingVertical="12dp"
+        android:paddingStart="64dp"
+        android:paddingEnd="56dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Continue with Apple Button (New Component 3) -->
+    <!-- Note: You'll need to provide the 'ic_apple' drawable -->
+    <Button
+        android:id="@+id/btnApple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue with Apple"
+        android:textColor="@color/neutral_deep"
+        android:textSize="16sp"
+        android:background="@drawable/sh_social_button_border"
+        android:textAllCaps="false"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
+        android:drawableStart="@drawable/ic_apple"
+        android:paddingVertical="12dp"
+        android:paddingStart="72dp"
+        android:paddingEnd="64dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="12dp"/>
+
+</LinearLayout>
