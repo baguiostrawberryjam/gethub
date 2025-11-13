@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.gethub.MainActivity;
 import com.example.gethub.databinding.ActivityLoginBinding;
+import com.example.gethub.home.HomeActivity;
 import com.example.gethub.models.User;
 
 public class LoginActivity extends AppCompatActivity {
@@ -78,8 +79,14 @@ public class LoginActivity extends AppCompatActivity {
 
         loginViewModel.getLoginState().observe(this, loginState -> {
             if (loginState instanceof LoginViewModel.LoginState.Success) {
+                // **UPDATED: Get the User object from the Success state**
+                User loggedInUser = ((LoginViewModel.LoginState.Success) loginState).getUser();
+
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                // **UPDATED: Navigate to HomeActivity and pass data**
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                intent.putExtra(HomeActivity.EXTRA_USER, loggedInUser); // Pass the User object
                 startActivity(intent);
                 finish(); // Prevent returning to the login screen
             } else if (loginState instanceof LoginViewModel.LoginState.Error) {
