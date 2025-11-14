@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llSearchMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    tools:context=".home.SearchFragment">
+
+    <TextView
+        android:id="@+id/tvSearchUnavailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SEARCH FUNCTION"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/neutral_deep"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvUnderConstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This feature is currently under construction. Please use the 'My Requests' tab to track existing tickets."
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@color/gray" />
+
+</LinearLayout>

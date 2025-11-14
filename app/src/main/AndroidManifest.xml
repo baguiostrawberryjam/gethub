@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GetHub">
         <activity
+            android:name=".requests.TicketDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".requests.RequestActivity"
+            android:exported="false" />
+        <activity
             android:name=".home.HomeActivity"
             android:exported="false" />
         <activity

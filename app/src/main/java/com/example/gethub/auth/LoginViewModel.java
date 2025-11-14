@@ -87,12 +87,45 @@ public class LoginViewModel extends ViewModel {
             return;
         }
 
-        // Fallback for default admin login
+        /* Old Fallback for default admin login
         if (id.equals("admin") && pass.equals("1234")) {
             // **UPDATED:** Create a dummy user object for admin fallback
             User adminUser = new User();
             adminUser.setFirstName("Admin");
             adminUser.setStudentId("admin");
+            loginState.setValue(new LoginState.Success(adminUser));
+            return;
+        }
+        */
+        if (id.equals("admin") && pass.equals("1234")) {
+            User adminUser = new User();
+
+            // --- Page 1: Names ---
+            adminUser.setFirstName("System");
+            adminUser.setMiddleName("");
+            adminUser.setLastName("Administrator");
+
+            // --- Page 2: Contact ---
+            adminUser.setEmail("admin@gethub.edu.ph");
+            adminUser.setOtpCode("");
+
+            // --- Page 3: Credentials (The actual login credentials) ---
+            adminUser.setStudentId("admin");
+            adminUser.setPassword("1234");
+
+            // --- Page 4: Address/Contact ---
+            adminUser.setContactNumber("N/A");
+            adminUser.setAddressNo("N/A");
+            adminUser.setAddressStreet("N/A");
+            adminUser.setAddressBarangay("N/A");
+            adminUser.setAddressCity("Central Admin");
+            adminUser.setAddressProvince("N/A");
+
+            // --- Page 5: Academic (Set to N/A to avoid crashing student-specific logic) ---
+            adminUser.setCampusBranch("Main Campus (Malolos)");
+            adminUser.setCollege("Administration");
+            adminUser.setCourseProgram("N/A"); // Must be non-null for Dashboard to load
+
             loginState.setValue(new LoginState.Success(adminUser));
             return;
         }

@@ -4,7 +4,6 @@
     <string name="college_placeholder">Select a college</string>
     <string name="course_placeholder">Select a course/program</string>
 
-    <!-- Page 5: Campus Branch -->
     <string-array name="spCampusBranch_choices">
         <item>@string/campus_placeholder</item>
         <item>Main Campus (Malolos)</item>
@@ -15,7 +14,6 @@
         <item>San Rafael Campus</item>
     </string-array>
 
-    <!-- Page 5: College/Faculty -->
     <string-array name="spCollege_choices">
         <item>@string/college_placeholder</item>
         <item>College of Architecture and Fine Arts (CAFA)</item>
@@ -35,14 +33,22 @@
         <item>Graduate School (GS)</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CAFA -->
+    <string-array name="spPurpose_choices">
+        <item>@string/purpose_placeholder</item>
+        <item>Job Application</item>
+        <item>Transferring to another school</item>
+        <item>Personal Record Keeping</item>
+        <item>Scholarship Application</item>
+        <item>Others (Please Specify)</item>
+    </string-array>
+
+
     <string-array name="spCourse_CAFA">
         <item>Bachelor of Fine Arts Major in Visual Communication</item>
         <item>Bachelor of Landscape Architecture</item>
         <item>Bachelor of Science in Architecture</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CAL -->
     <string-array name="spCourse_CAL">
         <item>Bachelor of Arts in Broadcasting</item>
         <item>Bachelor of Arts in Journalism</item>
@@ -50,7 +56,6 @@
         <item>Batsilyer ng Sining sa Malikhaing Pagsulat</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CBEA -->
     <string-array name="spCourse_CBEA">
         <item>Bachelor of Science in Accountancy</item>
         <item>Bachelor of Science in Business Administration Major in Business Economics</item>
@@ -59,26 +64,22 @@
         <item>Bachelor of Science in Entrepreneurship</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CCJE -->
     <string-array name="spCourse_CCJE">
         <item>Bachelor of Arts in Legal Management</item>
         <item>Bachelor of Science in Criminology</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CHTM -->
     <string-array name="spCourse_CHTM">
         <item>Bachelor of Science in Hospitality Management</item>
         <item>Bachelor of Science in Tourism Management</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CICT -->
     <string-array name="spCourse_CICT">
         <item>Bachelor of Library and Information Science</item>
         <item>Bachelor of Science in Information System</item>
         <item>Bachelor of Science in Information Technology</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CIT -->
     <string-array name="spCourse_CIT">
         <item>Bachelor of Industrial Technology with specialization in Automotive</item>
         <item>Bachelor of Industrial Technology with specialization in Computer</item>
@@ -93,18 +94,15 @@
         <item>Bachelor of Industrial Technology with specialization in Welding Technology</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CLaw -->
     <string-array name="spCourse_CLaw">
         <item>Bachelor of Laws</item>
         <item>Juris Doctor</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CN -->
     <string-array name="spCourse_CN">
         <item>Bachelor of Science in Nursing</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - COE -->
     <string-array name="spCourse_COE">
         <item>Bachelor of Science in Civil Engineering</item>
         <item>Bachelor of Science in Computer Engineering</item>
@@ -116,7 +114,6 @@
         <item>Bachelor of Science in Mechatronics Engineering</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - COED -->
     <string-array name="spCourse_COED">
         <item>Bachelor of Early Childhood Education</item>
         <item>Bachelor of Elementary Education</item>
@@ -132,7 +129,6 @@
         <item>Bachelor of Technology and Livelihood Education Major in Information and Communication Technology</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CS -->
     <string-array name="spCourse_CS">
         <item>Bachelor of Science in Biology</item>
         <item>Bachelor of Science in Environmental Science</item>
@@ -142,21 +138,18 @@
         <item>Bachelor of Science in Math with Specialization in Computer Science</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CSER -->
     <string-array name="spCourse_CSER">
         <item>Bachelor of Science in Exercise and Sports Sciences with specialization in Fitness and Sports Coaching</item>
         <item>Bachelor of Science in Exercise and Sports Sciences with specialization in Fitness and Sports Management</item>
         <item>Certificate of Physical Education</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - CSSP -->
     <string-array name="spCourse_CSSP">
         <item>Bachelor of Public Administration</item>
         <item>Bachelor of Science in Psychology</item>
         <item>Bachelor of Science in Social Work</item>
     </string-array>
 
-    <!-- Page 5: Course/Program - GS -->
     <string-array name="spCourse_GS">
         <item>Doctor of Education</item>
         <item>Doctor of Philosophy</item>
