@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/svRequestPage2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".requests.RequestPage2Fragment">
+
+    <LinearLayout
+        android:id="@+id/llPage2Main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:id="@+id/tvPageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Form Details (2/2)"
+            android:textSize="24sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/tvDocumentTypeDisplay"
+            style="@style/InputLabelStyle"
+            android:text="DOCUMENT SELECTED"/>
+
+        <EditText
+            android:id="@+id/etDocumentTypeDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Transcript of Records"
+            android:inputType="none"
+            android:focusable="false"
+            android:background="@drawable/sh_rounded_input_disabled"
+            android:textSize="16sp"
+            android:textColor="@color/gray"
+            android:layout_marginHorizontal="16dp"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:id="@+id/tvPurpose"
+            style="@style/InputLabelStyle"
+            android:text="PURPOSE OF REQUEST (Required)"/>
+
+        <Spinner
+            android:id="@+id/spPurpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:spinnerMode="dropdown"
+            android:entries="@array/spPurpose_choices"
+            android:dropDownHeight="240dp"/>
+
+        <TextView
+            android:id="@+id/errPurpose"
+            style="@style/ErrorTextStyle"
+            android:layout_marginBottom="16dp"
+            tools:text="Please select a purpose."/>
+
+        <EditText
+            android:id="@+id/etOtherPurpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Please specify your purpose"
+            android:inputType="textCapSentences"
+            android:background="@drawable/sh_rounded_input"
+            android:textSize="16sp"
+            android:textColor="@color/neutral_deep"
+            android:layout_marginHorizontal="16dp"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llAppointmentsMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".appointments.AppointmentsFragment">
+
+    <TextView
+        android:id="@+id/tvAppointmentsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MY APPOINTMENTS"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/neutral_deep"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvAppointmentPlaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calendar and Appointment List will be displayed here."
+        android:gravity="center"
+        android:padding="32dp" />
+
+</LinearLayout>

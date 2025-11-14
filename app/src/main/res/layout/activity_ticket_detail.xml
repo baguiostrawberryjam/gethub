@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/svTicketDetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".requests.TicketDetailActivity">
+
+    <LinearLayout
+        android:id="@+id/llTicketMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <Button
+            android:id="@+id/btnBackToDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to Dashboard"
+            android:background="@drawable/sh_rounded_input"
+            android:textColor="@color/neutral_deep"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+            android:elevation="0dp"
+            android:stateListAnimator="@null"
+            android:layout_marginBottom="32dp"
+            app:backgroundTint="@null"/>
+
+        <TextView
+            android:id="@+id/tvTicketHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TICKET REQ-0001"
+            android:textSize="28sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvTicketStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="APPROVED"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/sh_rounded_status_tag"
+            android:textColor="@android:color/white"
+            tools:backgroundTint="@android:color/holo_orange_dark"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/neutral_lavender"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/tvDocTypeLabel"
+            style="@style/InputLabelStyle"
+            android:text="DOCUMENT TYPE"/>
+
+        <TextView
+            android:id="@+id/tvTicketDocType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Transcript of Records"
+            android:textSize="18sp"
+            android:textColor="@color/neutral_deep"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/tvPurposeLabel"
+            style="@style/InputLabelStyle"
+            android:text="PURPOSE OF REQUEST"/>
+
+        <TextView
+            android:id="@+id/tvTicketPurpose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Job Application"
+            android:textSize="18sp"
+            android:textColor="@color/neutral_deep"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:id="@+id/tvReqDateLabel"
+            style="@style/InputLabelStyle"
+            android:text="REQUEST DATE"/>
+
+        <TextView
+            android:id="@+id/tvTicketReqDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nov 14, 2025"
+            android:textSize="18sp"
+            android:textColor="@color/neutral_deep"
+            android:layout_marginBottom="32dp"/>
+
+
+        <Button
+            android:id="@+id/btnCancelRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel Request"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/btnViewAppointment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Appointment Details"
+            android:backgroundTint="@color/primary_purple"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</ScrollView>
