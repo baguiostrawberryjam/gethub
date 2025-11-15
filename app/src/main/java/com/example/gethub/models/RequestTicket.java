@@ -73,12 +73,17 @@ public class RequestTicket implements Parcelable {
     protected RequestTicket(Parcel in) {
         ticketId = in.readString();
         studentId = in.readString();
-        documentType = in.readString();     // Document Type
+        documentType = in.readString();
         purposeOfRequest = in.readString();
         deliveryMethod = in.readString();
         status = in.readString();
         requestDate = in.readLong();
-        completionDate = in.readLong() == -1 ? null : in.readLong();
+
+        // --- FIX: Read the long ONCE, then check its value ---
+        long tempCompletionDate = in.readLong();
+        completionDate = (tempCompletionDate == -1) ? null : tempCompletionDate;
+        // --- END FIX ---
+
         additionalInstructions = in.readString();
         serviceFee = in.readDouble();
         isInstant = in.readByte() != 0;

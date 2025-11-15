@@ -1,4 +1,3 @@
-// File: com.example.gethub.GethubApplication.java
 package com.example.gethub;
 
 import android.app.Application;
@@ -8,27 +7,30 @@ import android.os.Build;
 
 public class GethubApplication extends Application {
 
-    public static final String STATUS_CHANNEL_ID = "status_updates_channel";
+    public static final String STATUS_CHANNEL_ID = "status_updates";
 
     @Override
     public void onCreate() {
         super.onCreate();
-        createNotificationChannel();
+        createNotificationChannels();
     }
 
-    private void createNotificationChannel() {
-        // Only create the channel on Android Oreo (API 26) and newer
+    private void createNotificationChannels() {
+        // The NotificationChannel class is new and not in the support library, so it only runs on Oreo or higher
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "Request Status Updates";
-            String description = "Notifications for status changes on submitted document requests.";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-
-            NotificationChannel channel = new NotificationChannel(STATUS_CHANNEL_ID, name, importance);
-            channel.setDescription(description);
+            // Channel for Status Updates
+            NotificationChannel statusChannel = new NotificationChannel(
+                    STATUS_CHANNEL_ID,
+                    "Request Status Updates",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
+            statusChannel.setDescription("Notifications for when the status of your document request changes.");
 
             // Register the channel with the system
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            if (manager != null) {
+                manager.createNotificationChannel(statusChannel);
+            }
         }
     }
 }

@@ -23,6 +23,19 @@
             android:textColor="@color/neutral_deep"
             android:layout_marginBottom="16dp" />
 
+
+        <!-- EDIT PROFILE BUTTON -->
+        <Button
+            android:id="@+id/btnEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile / Settings"
+            android:background="@drawable/sel_button_primary"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"/>
+
         <!-- Full Name -->
         <TextView
             style="@style/InputLabelStyle"
@@ -113,18 +126,15 @@
             android:textColor="@color/neutral_deep"
             android:layout_marginBottom="32dp"
             tools:text="Unit 101, Central St., Brgy. San Jose, City of Malolos, Bulacan" />
-
-        <!-- EDIT PROFILE BUTTON -->
         <Button
-            android:id="@+id/btnEditProfile"
+            android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit Profile / Settings"
-            android:background="@drawable/sel_button_primary"
+            android:text="Log Out"
+            android:backgroundTint="@android:color/holo_red_dark"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:backgroundTint="@null"/>
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"/>
 
     </LinearLayout>
 </ScrollView>
