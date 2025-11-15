@@ -24,7 +24,7 @@ public class DataRepository {
     private static final Map<String, ProfileSettings> settingsStore = new HashMap<>();
 
     // --- Static Initializer Block (Populating the Mock Database) ---
-    static {
+    /* static {
         // 1. Mock Users
         String studentId = "1234567890";
         User defaultUser = new User();
@@ -102,7 +102,11 @@ public class DataRepository {
 
         notificationStore.put(notif1.getNotificationId(), notif1);
         notificationStore.put(notif2.getNotificationId(), notif2);
+
+
     }
+
+     */
 
     // --- Public Access Methods: Users ---
     public static User getUserByStudentId(String studentId) {

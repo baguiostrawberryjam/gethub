@@ -63,6 +63,10 @@ public class TicketDetailActivity extends AppCompatActivity {
         // --- 3. Navigation Button (Using Binding) ---
         binding.btnBackToDashboard.setOnClickListener(v -> {
             Intent intent = new Intent(TicketDetailActivity.this, HomeActivity.class);
+
+            // FIX: Add flag to force navigation to the Dashboard Fragment
+            intent.putExtra(HomeActivity.EXTRA_NAVIGATE_TO_DASHBOARD, true);
+
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
             finish();

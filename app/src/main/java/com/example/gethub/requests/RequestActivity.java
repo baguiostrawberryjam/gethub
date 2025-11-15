@@ -17,6 +17,7 @@ import com.example.gethub.databinding.ActivityRequestBinding;
 import com.example.gethub.home.HomeActivity;
 import com.example.gethub.models.RequestTicket;
 import com.example.gethub.models.User;
+import com.example.gethub.notifications.NotificationHelper;
 
 import java.util.Arrays;
 import java.util.List;
@@ -133,6 +134,10 @@ public class RequestActivity extends AppCompatActivity {
                         .setTitle("Request Successful")
                         .setMessage("Your request has been successfully submitted! Tap OK to view your ticket.")
                         .setPositiveButton("OK", (dialog, which) -> {
+
+                            // 🚀 PUSH NOTIFICATION IMPLEMENTATION (MOCK TRIGGER)
+                            NotificationHelper.showTicketNotification(this, finalTicket);
+
                             // Redirect to Ticket Detail Activity
                             Intent intent = new Intent(this, TicketDetailActivity.class);
                             intent.putExtra(TicketDetailActivity.EXTRA_TICKET, finalTicket);
