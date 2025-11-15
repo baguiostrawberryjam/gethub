@@ -119,7 +119,7 @@ public class TicketDetailActivity extends AppCompatActivity {
         }
         // --- END FIX 1 ---
 
-        boolean canSchedule = "Approved".equals(ticket.getStatus()) || "Processing".equals(ticket.getStatus());
+        boolean canSchedule = "Approved".equals(ticket.getStatus());
 
         // Default text for "no appointment yet"
         String appointmentDateText = "Not yet scheduled";
