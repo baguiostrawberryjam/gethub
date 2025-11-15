@@ -15,5 +15,9 @@
 
     <!-- Disabled Colors -->
     <color name="disabled_primary_purple">#805762D5</color>
+    <color name="disabled_primary_purple_darker">#80434DB4</color>
     <color name="disabled_secondary_sky">#805FBFF9</color>
+
+    <!-- Darker Versions (not dark mode)-->
+    <color name="primary_purple_darker">#FF434DB4</color>
 </resources>
