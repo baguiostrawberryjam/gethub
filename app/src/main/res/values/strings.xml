@@ -8,4 +8,28 @@
 
     <string name="btn_submit_request_text">Submit Request</string>
     <string name="purpose_placeholder">Select Purpose of Request</string>
+
+    <string name="first_name_label"><b>FIRST NAME</b> <font color='#FF0000'> *</font></string>
+    <string name="middle_name_label"><b>MIDDLE NAME</b> (optional)</string>
+    <string name="last_name_label"><b>LAST NAME</b> <font color='#FF0000'> *</font></string>
+
+    <string name="email_add_label">EMAIL ADDRESS<font color='#FF0000'> *</font></string>
+    <string name="otp_code_label">OTP CODE<font color='#FF0000'> *</font></string>
+
+    <string name="stu_id_label">STUDENT ID<font color='#FF0000'> *</font></string>
+    <string name="pass_label">PASSWORD<font color='#FF0000'> *</font></string>
+    <string name="con_pass_label">CONFIRM PASSWORD<font color='#FF0000'> *</font></string>
+
+    <string name="contact_no_label">CONTACT NUMBER<font color='#FF0000'> *</font></string>
+    <string name="house_no_label">HOUSE NO.<font color='#FF0000'> *</font></string>
+    <string name="st_subdv_label">STREET/SUBD.<font color='#FF0000'> *</font></string>
+    <string name="brgy_label">BARANGAY<font color='#FF0000'> *</font></string>
+    <string name="city_mun_label">CITY/MUNICIPALITY<font color='#FF0000'> *</font></string>
+    <string name="province_label">PROVINCE<font color='#FF0000'> *</font></string>
+
+    <string name="campus_branch_label">CAMPUS BRANCH<font color='#FF0000'> *</font></string>
+    <string name="college_label">COLLEGE<font color='#FF0000'> *</font></string>
+    <string name="course_program_label">COURSE/PROGRAM<font color='#FF0000'> *</font></string>
+
+
 </resources>

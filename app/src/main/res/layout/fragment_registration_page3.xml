@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/svPage3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/svPage3"
     android:fillViewport="true"
     tools:context=".auth.RegistrationPage3Fragment">
 
@@ -11,78 +11,124 @@
         android:id="@+id/llPage3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient"
         android:orientation="vertical"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="0dp">
 
-        <TextView
-            android:id="@+id/tvPageTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Set Credentials (3/5)"
-            android:textSize="24sp"
-            android:textColor="@color/neutral_deep"
-            android:textStyle="bold"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="24dp"/>
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp"
+            android:paddingTop="64dp">
 
-        <!-- Student ID Input -->
-        <TextView
-            android:id="@+id/tvStudentID"
-            style="@style/InputLabelStyle"
-            android:text="STUDENT ID (Required)"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:text="SIGN-UP"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etStudentID"
-            style="@style/InputEditTextStyle"
-            android:hint="Enter 10-digit student ID"
-            android:inputType="number"
-            android:maxLength="10"
-            android:layout_marginBottom="0dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="Fill in the details to create your account"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/errStudentId"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="Student ID must be 10 digits."/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_panel_rounded"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp">
 
-        <!-- Password Input -->
-        <TextView
-            android:id="@+id/tvPassword"
-            style="@style/InputLabelStyle"
-            android:text="PASSWORD (Required)"/>
+            <TextView
+                android:id="@+id/tvPageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="35dp"
+                android:text="Set Credentials"
+                android:textColor="@color/neutral_deep"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etPassword"
-            style="@style/InputEditTextStyle"
-            android:hint="Min 8 characters"
-            android:inputType="textPassword"
-            android:layout_marginBottom="0dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="35dp"
+                android:text="3 of 5"
+                android:textColor="@color/gray"
+                android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/errPassword"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="Password must be at least 8 characters."/>
+            <!-- Student ID Input -->
+            <TextView
+                android:id="@+id/tvStudentID"
+                style="@style/InputLabelStyle"
+                android:text="@string/stu_id_label" />
 
-        <!-- Confirm Password Input -->
-        <TextView
-            android:id="@+id/tvConfirmPassword"
-            style="@style/InputLabelStyle"
-            android:text="CONFIRM PASSWORD (Required)"/>
+            <EditText
+                android:id="@+id/etStudentID"
+                style="@style/InputEditTextStyle"
+                android:layout_marginBottom="13dp"
+                android:hint="Enter 10-digit student ID"
+                android:inputType="number"
+                android:maxLength="10" />
 
-        <EditText
-            android:id="@+id/etConfirmPassword"
-            style="@style/InputEditTextStyle"
-            android:hint="Re-enter password"
-            android:inputType="textPassword"
-            android:layout_marginBottom="0dp"/>
+            <TextView
+                android:id="@+id/errStudentId"
+                style="@style/ErrorTextStyle"
+                android:layout_marginBottom="16dp"
+                tools:text="Student ID must be 10 digits." />
 
-        <TextView
-            android:id="@+id/errConfirmPassword"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="Passwords do not match."/>
+            <!-- Password Input -->
+            <TextView
+                android:id="@+id/tvPassword"
+                style="@style/InputLabelStyle"
+                android:text="@string/pass_label" />
 
+            <EditText
+                android:id="@+id/etPassword"
+                style="@style/InputEditTextStyle"
+                android:layout_marginBottom="13dp"
+                android:hint="Min. of 8 characters"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/errPassword"
+                style="@style/ErrorTextStyle"
+                android:layout_marginBottom="16dp"
+                tools:text="Password must be at least 8 characters." />
+
+            <!-- Confirm Password Input -->
+            <TextView
+                android:id="@+id/tvConfirmPassword"
+                style="@style/InputLabelStyle"
+                android:text="@string/con_pass_label" />
+
+            <EditText
+                android:id="@+id/etConfirmPassword"
+                style="@style/InputEditTextStyle"
+                android:layout_marginBottom="0dp"
+                android:hint="Re-enter password"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/errConfirmPassword"
+                style="@style/ErrorTextStyle"
+                android:layout_marginBottom="16dp"
+                tools:text="Passwords do not match." />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
