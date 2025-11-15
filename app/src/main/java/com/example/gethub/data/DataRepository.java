@@ -24,7 +24,7 @@ public class DataRepository {
     private static final Map<String, ProfileSettings> settingsStore = new HashMap<>();
 
     // --- Static Initializer Block (Populating the Mock Database) ---
-    /* static {
+    static {
         // 1. Mock Users
         String studentId = "1234567890";
         User defaultUser = new User();
@@ -73,7 +73,7 @@ public class DataRepository {
         Appointment mockAppointment = new Appointment(mockAppointmentId, studentId, null, tomorrow);
         appointmentStore.put(mockAppointmentId, mockAppointment);
 
-        // 5. Mock Request Tickets
+        /* 5. Mock Request Tickets
         String ticketId1 = "TR-2025-001";
         RequestTicket ticket1 = new RequestTicket(ticketId1, studentId, tor.getDocName(), "Pick-up", tor.getServiceFee(), tor.isInstant());
         ticket1.setStatus("Approved");
@@ -102,11 +102,9 @@ public class DataRepository {
 
         notificationStore.put(notif1.getNotificationId(), notif1);
         notificationStore.put(notif2.getNotificationId(), notif2);
-
+         */
 
     }
-
-     */
 
     // --- Public Access Methods: Users ---
     public static User getUserByStudentId(String studentId) {
