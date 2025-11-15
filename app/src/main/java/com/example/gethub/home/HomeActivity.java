@@ -1,4 +1,4 @@
-// File: com.example.gethub.home.HomeActivity.java (REFACTORED WITH BINDING)
+// File: com.example.gethub.home.HomeActivity.java (FINAL SYNCHRONIZATION)
 package com.example.gethub.home;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,18 +12,21 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.gethub.R;
 import com.example.gethub.appointments.AppointmentsFragment;
-import com.example.gethub.databinding.ActivityHomeBinding; // NEW IMPORT
+import com.example.gethub.databinding.ActivityHomeBinding;
 import com.example.gethub.models.User;
+import com.example.gethub.notifications.NotificationActivity; // NEW IMPORT
+import com.example.gethub.profile.ProfileActivity; // NEW IMPORT
 import com.example.gethub.requests.RequestActivity;
 import com.example.gethub.requests.RequestsFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "extra_user_data";
+    public static final String EXTRA_NAVIGATE_TO_DASHBOARD = "extra_navigate_to_dashboard";
     private HomeViewModel viewModel;
-    private ActivityHomeBinding binding; // NEW BINDING VARIABLE
-    private String loggedInStudentId;
+    public ActivityHomeBinding binding;
+    public String loggedInStudentId;
+    public User loggedInUser; // Added to easily pass to Profile Activity
 
     // Fragments for Navigation
     final Fragment dashboardFragment = new DashboardFragment();
@@ -36,12 +39,12 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityHomeBinding.inflate(getLayoutInflater()); // INITIALIZE BINDING
-        setContentView(binding.getRoot()); // SET CONTENT VIEW VIA BINDING
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // 1. Get User Data and Student ID
         if (getIntent().hasExtra(EXTRA_USER)) {
-            User loggedInUser = getIntent().getParcelableExtra(EXTRA_USER);
+            loggedInUser = getIntent().getParcelableExtra(EXTRA_USER);
             if (loggedInUser != null) {
                 loggedInStudentId = loggedInUser.getStudentId();
             }
@@ -56,13 +59,13 @@ public class HomeActivity extends AppCompatActivity {
         // 2. Initialize ViewModel
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
-        // 3. Setup Fragment Management (Using binding IDs)
+        // 3. Setup Fragment Management
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), searchFragment, "4").hide(searchFragment).commit();
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), appointmentsFragment, "3").hide(appointmentsFragment).commit();
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), requestsFragment, "2").hide(requestsFragment).commit();
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), dashboardFragment, "1").commit();
 
-        // 4. Setup Bottom Navigation Listener (Using binding ID)
+        // 5. Setup Bottom Navigation Listener
         binding.bnvMain.setOnNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
@@ -80,7 +83,6 @@ public class HomeActivity extends AppCompatActivity {
                 swapFragment(searchFragment);
                 return true;
             } else if (itemId == R.id.nav_new_request) {
-                // '+' Button: Redirect to Request Document page (Activity)
                 Intent intent = new Intent(HomeActivity.this, RequestActivity.class);
                 intent.putExtra(RequestActivity.EXTRA_STUDENT_ID, loggedInStudentId);
                 startActivity(intent);
@@ -93,9 +95,16 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Reload data every time the activity comes to the foreground
         if (loggedInStudentId != null) {
             viewModel.loadDashboardData(loggedInStudentId);
+        }
+
+        // FIX: Check for the flag to force selection of the Home tab
+        if (getIntent().getBooleanExtra(EXTRA_NAVIGATE_TO_DASHBOARD, false)) {
+            // Programmatically select the Home tab on the Bottom Navigation View
+            binding.bnvMain.setSelectedItemId(R.id.nav_home);
+            // IMPORTANT: Clear the flag after use so subsequent resumes don't force home
+            getIntent().removeExtra(EXTRA_NAVIGATE_TO_DASHBOARD);
         }
     }
 
@@ -104,7 +113,6 @@ public class HomeActivity extends AppCompatActivity {
      */
     private void swapFragment(Fragment nextFragment) {
         if (activeFragment != nextFragment) {
-            // Uses binding ID for the container
             fragmentManager.beginTransaction().hide(activeFragment).show(nextFragment).commit();
             activeFragment = nextFragment;
         }
