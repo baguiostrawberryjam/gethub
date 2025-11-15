@@ -4,6 +4,16 @@
     <string name="college_placeholder">Select a college</string>
     <string name="course_placeholder">Select a course/program</string>
 
+    <string-array name="time_slots">
+        <item>Select Time Slot</item>
+        <item>09:00 AM - 10:00 AM</item>
+        <item>10:00 AM - 11:00 AM</item>
+        <item>11:00 AM - 12:00 PM</item>
+        <item>01:00 PM - 02:00 PM</item>
+        <item>02:00 PM - 03:00 PM</item>
+        <item>03:00 PM - 04:00 PM</item>
+    </string-array>
+
     <string-array name="spCampusBranch_choices">
         <item>@string/campus_placeholder</item>
         <item>Main Campus (Malolos)</item>

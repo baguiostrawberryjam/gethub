@@ -1,10 +1,16 @@
 // File: com.example.gethub.home.HomeActivity.java (FINAL SYNCHRONIZATION)
 package com.example.gethub.home;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
@@ -35,6 +41,31 @@ public class HomeActivity extends AppCompatActivity {
     final Fragment searchFragment = new SearchFragment();
     final FragmentManager fragmentManager = getSupportFragmentManager();
     Fragment activeFragment = dashboardFragment;
+
+    private final ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    // Permission is granted. You can now show notifications.
+                    Toast.makeText(this, "Notification permission granted!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Permission is denied.
+                    Toast.makeText(this, "Notifications will not be shown.", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+    private void askNotificationPermission() {
+        // This is only required for Android 13 (API 33) and higher
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            // Check if the permission is already granted
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+                    PackageManager.PERMISSION_GRANTED) {
+                // You can log this or show a toast
+            } else {
+                // Permission is not granted. Launch the dialog to ask the user.
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +120,9 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
             return false;
+
         });
+        askNotificationPermission();
     }
 
     @Override

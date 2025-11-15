@@ -100,8 +100,22 @@
             android:text="Nov 14, 2025"
             android:textSize="18sp"
             android:textColor="@color/neutral_deep"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="24dp"/>
 
+        <TextView
+            android:id="@+id/tvApptDateLabel"
+            style="@style/InputLabelStyle"
+            android:text="APPOINTMENT DATE"/>
+
+        <TextView
+            android:id="@+id/tvTicketApptDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not applicable"
+            android:textSize="18sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp"/>
 
         <Button
             android:id="@+id/btnCancelRequest"
@@ -118,7 +132,7 @@
             android:id="@+id/btnViewAppointment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Appointment Details"
+            android:text="SET APPOINTMENT SCHEDULE"
             android:backgroundTint="@color/primary_purple"
             android:textColor="@android:color/white"
             android:textSize="16sp"

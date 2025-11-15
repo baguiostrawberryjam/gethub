@@ -1,29 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/llAppointmentsMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".appointments.AppointmentsFragment">
 
-    <TextView
-        android:id="@+id/tvAppointmentsHeader"
+    <LinearLayout
+        android:id="@+id/llAppointmentsHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MY APPOINTMENTS"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/neutral_deep"
-        android:layout_marginBottom="16dp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/ibBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Back"
+            app:tint="@color/neutral_deep"/>
+
+        <TextView
+            android:id="@+id/tvAppointmentsHeaderTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="My Appointments"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/neutral_deep"
+            android:gravity="center_horizontal"
+            android:layout_marginHorizontal="8dp"/>
+
+        <ImageButton
+            android:id="@+id/ibProfile"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_profile_filled"
+            android:background="@drawable/sh_profile_circle_border"
+            android:scaleType="centerCrop"
+            android:contentDescription="Profile" />
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/tvAppointmentPlaceholder"
+        android:id="@+id/tvFilterPlaceholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calendar and Appointment List will be displayed here."
+        android:text="Filter by Status/Date placeholder."
+        android:padding="8dp"
+        android:background="@drawable/sh_rounded_input"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAppointmentsList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="16dp"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_appointment_ticket"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+    <TextView
+        android:id="@+id/tvNoAppointments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="You currently have no scheduled appointments."
         android:gravity="center"
-        android:padding="32dp" />
+        android:padding="32dp"
+        android:visibility="gone" />
 
 </LinearLayout>

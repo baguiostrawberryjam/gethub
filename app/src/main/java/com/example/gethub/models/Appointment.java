@@ -37,6 +37,7 @@ public class Appointment implements Parcelable {
     public String getQrCodeData() { return qrCodeData; }
 
     // --- Setters / Utility (UPDATED) ---
+    public void setScheduledDate(Long scheduledDate) { this.scheduledDate = scheduledDate; }
     public void setStatus(String status) { this.status = status; }
     public void setRescheduleCount(int rescheduleCount) { this.rescheduleCount = rescheduleCount; }
     public void setQrCodeData(String qrCodeData) { this.qrCodeData = qrCodeData; }
