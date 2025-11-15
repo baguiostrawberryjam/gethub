@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.gethub.data.DataRepository;
+import com.example.gethub.models.Notification;
 import com.example.gethub.models.RequestTicket;
 import com.example.gethub.models.SystemDocument;
 import com.example.gethub.models.User;
@@ -215,6 +216,7 @@ public class RequestViewModel extends ViewModel {
 
         if (finalTicket == null || doc == null || finalTicket.getStudentId().isEmpty()) return;
 
+        // --- 1. Set Final Ticket Details (Purpose & Document Info) ---
         finalTicket.setDocumentType(doc.getDocName());
         finalTicket.setDeliveryMethod(selectedDeliveryMethod.getValue());
         finalTicket.setServiceFee(doc.getServiceFee());
@@ -227,8 +229,52 @@ public class RequestViewModel extends ViewModel {
             finalTicket.setPurposeOfRequest(purpose);
         }
 
+        // --- 2. Apply Status Flow Business Rules ---
+        boolean isDigital = "Digital".equals(finalTicket.getDeliveryMethod());
+        boolean isInstantDocument = finalTicket.isInstant();
+        String initialStatus;
+        String notificationMessage;
+
+        if (isInstantDocument) {
+            if (isDigital) {
+                // Digital & Instant -> Completed
+                initialStatus = "Completed";
+                finalTicket.setCompletionDate(System.currentTimeMillis());
+                finalTicket.setFileReferenceId("FILE-" + finalTicket.getTicketId());
+                notificationMessage = String.format("Your request for %s is **Completed** and ready.", doc.getDocName());
+            } else {
+                // Pick-up & Instant -> Approved
+                initialStatus = "Approved";
+                notificationMessage = String.format("Your request for %s has been **Approved**. Please schedule pickup.", doc.getDocName());
+            }
+        } else {
+            // Document requires processing -> Processing
+            initialStatus = "Processing";
+            notificationMessage = String.format("Your request for %s has been submitted and is currently **Processing**.", doc.getDocName());
+        }
+
+        finalTicket.setStatus(initialStatus);
+
+        // --- 3. Create and Save Notification (NEW LOGIC) ---
+        Notification notification = new Notification(
+                "N-" + finalTicket.getTicketId(),
+                finalTicket.getStudentId(),
+                notificationMessage,
+                finalTicket.getTicketId(),
+                "STATUS_UPDATE"
+        );
+        DataRepository.addNotification(notification);
+
+        // --- 4. Final Save and Completion Event ---
         DataRepository.addRequestTicket(finalTicket);
         requestCompleteEvent.setValue(finalTicket);
+
+        // NEW TRIGGER: SIMULATE PUSH NOTIFICATION SEND/RECEIVE
+        // The Context must be passed to the ViewModel, typically via constructor or factory.
+        // For simplicity in our mock, we assume the Activity can access the ViewModel's completion event and trigger the helper.
+        // Let's modify the flow to trigger the helper in the Activity instead, as it owns the Context.
+
+        // We will modify the RequestActivity.java completion observer.
     }
 
     private String generateMockTicketId() {
