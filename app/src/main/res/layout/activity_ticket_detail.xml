@@ -118,7 +118,7 @@
                 android:padding="12dp">
 
                 <ImageView
-                    android:id="@+id/ivIcon"
+                    android:id="@+id/ivDocTypeIcon"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center_vertical"
@@ -166,7 +166,7 @@
                 android:padding="12dp">
 
                 <ImageView
-                    android:id="@+id/ivIcon"
+                    android:id="@+id/ivReqIcon"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center_vertical"
