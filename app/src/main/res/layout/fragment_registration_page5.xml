@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".auth.RegistrationPage5Fragment">
 
     <LinearLayout
@@ -48,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="24dp"
-            android:background="@drawable/bg_panel_rounded"
+            android:background="@drawable/bg_main_panel_rounded"
             android:orientation="vertical"
             android:paddingHorizontal="32dp">
 

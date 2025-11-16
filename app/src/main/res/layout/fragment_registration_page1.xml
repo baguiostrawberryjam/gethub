@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".auth.RegistrationPage1Fragment">
 
     <LinearLayout
@@ -51,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="24dp"
-            android:background="@drawable/bg_panel_rounded"
+            android:background="@drawable/bg_main_panel_rounded"
             android:orientation="vertical"
             android:paddingHorizontal="32dp">
 
@@ -61,7 +62,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="35dp"
                 android:text="Personal Information"
-                android:textColor="@color/black"
+                android:textColor="@color/neutral_deep"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
