@@ -31,8 +31,9 @@
     <string name="college_label">COLLEGE<font color='#FF0000'> *</font></string>
     <string name="course_program_label">COURSE/PROGRAM<font color='#FF0000'> *</font></string>
 
-    <string name="deliv_method_label"><font color='#9E9E9E'>Delivery Method</font><font color='#FF0000'> *</font></string>
-    <string name="docu_type_label"><font color='#9E9E9E'>Document Type</font><font color='#FF0000'> *</font></string>
+    <string name="deliv_method_label"><font color='#9E9E9E'>DELIVERY METHOD</font><font color='#FF0000'> *</font></string>
+    <string name="docu_type_label"><font color='#9E9E9E'>DOCUMENT TYPE</font><font color='#FF0000'> *</font></string>
+    <string name="service_fee_type_label"><font color='#9E9E9E'>SERVICE FEE</font></string>
 
     <string name="request_label">PURPOSE OF REQUEST<font color='#FF0000'> *</font></string>
 

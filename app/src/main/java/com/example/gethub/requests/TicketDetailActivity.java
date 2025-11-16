@@ -72,8 +72,12 @@ public class TicketDetailActivity extends AppCompatActivity {
 
         // --- 2. Status Display and Coloring ---
         binding.tvTicketStatus.setText(ticket.getStatus().toUpperCase());
+
         int colorResId = getStatusColorResId(ticket.getStatus());
-        binding.tvTicketStatus.getBackground().setTint(ContextCompat.getColor(this, colorResId));
+        binding.tvTicketStatus.setTextColor(ContextCompat.getColor(this, colorResId));
+
+        int colorResBgId = getStatusColorBgResId(ticket.getStatus());
+        binding.tvTicketStatus.getBackground().setTint(ContextCompat.getColor(this, colorResBgId));
 
         // --- 3. Handle Appointment Date Display (NEW LOGIC) ---
         handleAppointmentDetails(ticket);
@@ -174,18 +178,35 @@ public class TicketDetailActivity extends AppCompatActivity {
     /**
      * Maps ticket status string to the appropriate Android color resource ID (Business Rule).
      */
+
+
     private int getStatusColorResId(String status) {
         switch (status) {
             case "Processing":
-                return android.R.color.darker_gray;
+                return R.color.status_processing; // Gray
             case "Approved":
-                return android.R.color.holo_orange_dark;
+                return R.color.status_approved; // Yellow/Orange
             case "Completed":
-                return android.R.color.holo_green_dark;
+                return R.color.status_completed; // Green
             case "Rejected":
-                return android.R.color.holo_red_dark;
+                return R.color.status_rejected; // Red
             default:
-                return R.color.black; // Fallback color (assuming you have a black defined)
+                return R.color.gray;
+        }
+    }
+
+    private int getStatusColorBgResId(String status) {
+        switch (status) {
+            case "Processing":
+                return R.color.status_processing_bg; // Gray
+            case "Approved":
+                return R.color.status_approved_bg; // Yellow/Orange
+            case "Completed":
+                return R.color.status_completed_bg; // Green
+            case "Rejected":
+                return R.color.status_rejected_bg; // Red
+            default:
+                return R.color.gray;
         }
     }
 }

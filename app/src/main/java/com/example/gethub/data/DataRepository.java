@@ -44,15 +44,15 @@ public class DataRepository {
 
         // 3. Mock System Documents (Complete List)
         // Digital & Pick-Up (Both)
-        SystemDocument cor = new SystemDocument("COR", "Certificate of Registration (COR, per semester)", "Instant", 0.00, "Both", true);
-        SystemDocument cog = new SystemDocument("COG", "Certificate of Grades (per semester)", "Instant", 0.00, "Both", true);
+        SystemDocument cor = new SystemDocument("COR", "Certificate of Registration", "Instant", 0.00, "Both", true);
+        SystemDocument cog = new SystemDocument("COG", "Certificate of Grades", "Instant", 0.00, "Both", true);
         SystemDocument tor = new SystemDocument("TOR", "Transcript of Records", "5 business days", 100.00, "Both", false);
-        SystemDocument cograd = new SystemDocument("COGRAD", "Certificate of Graduation / Completion", "2 business days", 50.00, "Both", false);
+        SystemDocument cograd = new SystemDocument("COGRAD", "Certificate of Graduation", "2 business days", 50.00, "Both", false);
         SystemDocument goodMoral = new SystemDocument("GM", "Good Moral Certificate", "1 business day", 30.00, "Both", false);
 
         // Pick-Up Only
-        SystemDocument diploma = new SystemDocument("DIPLOMA", "Diploma (original/duplicate)", "10 business days", 200.00, "Pick-up Only", false);
-        SystemDocument hd = new SystemDocument("HD", "Honorable Dismissal / Transfer Credentials", "5 business days", 100.00, "Pick-up Only", false);
+        SystemDocument diploma = new SystemDocument("DIPLOMA", "Diploma", "10 business days", 200.00, "Pick-up Only", false);
+        SystemDocument hd = new SystemDocument("HD", "Honorable Dismissal", "5 business days", 100.00, "Pick-up Only", false);
         SystemDocument clearance = new SystemDocument("CLEARANCE", "Student Clearance", "3 business days", 50.00, "Pick-up Only", false);
         SystemDocument form137 = new SystemDocument("F137", "Form-137", "5 business days", 50.00, "Pick-up Only", false);
 

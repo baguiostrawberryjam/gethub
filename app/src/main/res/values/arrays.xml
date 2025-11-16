@@ -5,13 +5,14 @@
     <string name="course_placeholder">Select a course/program</string>
 
     <string-array name="time_slots">
-        <item>Select Time Slot</item>
+        <item>Select a time slot</item>
         <item>09:00 AM - 10:00 AM</item>
         <item>10:00 AM - 11:00 AM</item>
         <item>11:00 AM - 12:00 PM</item>
         <item>01:00 PM - 02:00 PM</item>
         <item>02:00 PM - 03:00 PM</item>
         <item>03:00 PM - 04:00 PM</item>
+        <item>04:00 PM - 05:00 PM</item>
     </string-array>
 
     <string-array name="spCampusBranch_choices">
@@ -45,11 +46,11 @@
 
     <string-array name="spPurpose_choices">
         <item>@string/purpose_placeholder</item>
-        <item>Job Application</item>
+        <item>Job application</item>
         <item>Transferring to another school</item>
-        <item>Personal Record Keeping</item>
-        <item>Scholarship Application</item>
-        <item>Others (Please Specify)</item>
+        <item>Personal record-keeping</item>
+        <item>Scholarship application</item>
+        <item>Others (please specify)</item>
     </string-array>
 
 
