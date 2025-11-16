@@ -24,6 +24,7 @@
             android:paddingHorizontal="24dp"
             android:paddingTop="25dp">
 
+<!--            di pa gumagana-->
             <Button
                 android:id="@+id/btnBackToDashboard"
                 android:layout_width="48dp"
@@ -181,7 +182,6 @@
                 style="@style/ErrorTextStyle"
                 android:layout_marginBottom="16dp"
                 tools:text="Please select a delivery method." />
-
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -12,34 +12,70 @@
         android:id="@+id/llPage2Main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_gradient"
+        android:background="@drawable/bg_half_blk_gray"
         android:orientation="vertical"
         android:paddingBottom="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="32dp"
-            android:paddingTop="64dp">
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="25dp">
+
+            <!--            <Button-->
+            <!--                android:id="@+id/btnBackToDashboard"-->
+            <!--                android:layout_width="48dp"-->
+            <!--                android:layout_height="48dp"-->
+            <!--                android:layout_gravity="left"-->
+            <!--                android:layout_marginBottom="15dp"-->
+            <!--                android:background="@drawable/bg_circle_button"-->
+            <!--                android:drawableStart="@drawable/ic_arrow_back"-->
+            <!--                android:drawablePadding="0dp"-->
+            <!--                android:drawableTint="@android:color/black"-->
+            <!--                android:elevation="0dp"-->
+            <!--                android:insetTop="0dp"-->
+            <!--                android:insetBottom="0dp"-->
+            <!--                android:padding="0dp"-->
+            <!--                android:paddingStart="12dp"-->
+            <!--                android:paddingEnd="12dp"-->
+            <!--                android:stateListAnimator="@null"-->
+            <!--                android:text=""-->
+            <!--                android:textColor="@android:color/transparent"-->
+            <!--                app:backgroundTint="@null" />-->
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
                 android:gravity="center"
-                android:text="REQUEST"
+                android:text="Request"
                 android:textColor="@color/white"
-                android:textSize="32sp"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="25dp">
+
+            <TextView
+                android:id="@+id/tvPageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="CONFIRMATION"
+                android:textColor="@color/white"
+                android:textSize="40sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="24dp"
-                android:gravity="center"
+                android:layout_height="match_parent"
+                android:gravity="left"
                 android:text="Fill in the details to request a document"
                 android:textColor="@color/white"
                 android:textSize="13sp" />
@@ -47,86 +83,112 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
-            android:background="@drawable/bg_main_panel_rounded"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/bg_panel_white_rounded"
+            android:elevation="4dp"
             android:orientation="vertical"
-            android:paddingHorizontal="32dp">
+            android:paddingHorizontal="5dp">
 
-            <TextView
-                android:id="@+id/tvPageTitle"
+            <LinearLayout
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_panel_gray_soft_rounded"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Step 2 of 2"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="35dp"
-                android:text="CONFIRMATION"
-                android:textColor="@color/neutral_deep"
-                android:textSize="32sp"
-                android:textStyle="bold" />
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="17dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
 
-            <TextView
+                <TextView
+                    android:id="@+id/tvDocumentTypeDisplay"
+                    style="@style/InputLabelStyle"
+                    android:text="DOCUMENT SELECTED" />
+
+                <EditText
+                    android:id="@+id/etDocumentTypeDisplay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="13dp"
+                    android:background="@null"
+                    android:focusable="false"
+                    android:hint="Transcript of Records"
+                    android:inputType="none"
+                    android:padding="10dp"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="24dp"
-                android:text="2 of 2"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
+                android:layout_marginLeft="17dp"
+                android:layout_marginRight="17dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
 
-            <TextView
-                android:id="@+id/tvDocumentTypeDisplay"
-                style="@style/InputLabelStyle"
-                android:text="DOCUMENT SELECTED" />
+                <TextView
+                    android:id="@+id/tvPurpose"
+                    style="@style/InputLabelStyle"
+                    android:text="@string/request_label" />
 
-            <EditText
-                android:id="@+id/etDocumentTypeDisplay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="13dp"
-                android:background="@drawable/sh_rounded_input_disabled"
-                android:focusable="false"
-                android:hint="Transcript of Records"
-                android:inputType="none"
-                android:textColor="@color/gray"
-                android:textSize="16sp" />
+                <Spinner
+                    android:id="@+id/spPurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:dropDownHeight="240dp"
+                    android:entries="@array/spPurpose_choices"
+                    android:spinnerMode="dropdown" />
 
-            <TextView
-                android:id="@+id/tvPurpose"
-                style="@style/InputLabelStyle"
-                android:text="@string/request_label" />
+                <TextView
+                    android:id="@+id/errPurpose"
+                    style="@style/ErrorTextStyle"
+                    android:layout_marginBottom="16dp"
+                    tools:text="Please select a purpose." />
 
-            <Spinner
-                android:id="@+id/spPurpose"
-                android:layout_width="match_parent"
-                android:layout_height="41dp"
-                android:layout_marginHorizontal="16dp"
-                android:background="@drawable/sp_rounded"
-                android:dropDownHeight="240dp"
-                android:entries="@array/spPurpose_choices"
-                android:spinnerMode="dropdown" />
-
-            <TextView
-                android:id="@+id/errPurpose"
-                style="@style/ErrorTextStyle"
-                android:layout_marginBottom="16dp"
-                tools:text="Please select a purpose." />
-
-            <EditText
-                android:id="@+id/etOtherPurpose"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/sh_rounded_input"
-                android:hint="Please specify your purpose"
-                android:inputType="textCapSentences"
-                android:padding="16dp"
-                android:textColor="@color/neutral_deep"
-                android:textSize="16sp"
-                android:visibility="gone"
-                tools:visibility="visible" />
+                <EditText
+                    android:id="@+id/etOtherPurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/sh_rounded_input"
+                    android:hint="Please specify your purpose"
+                    android:inputType="textCapSentences"
+                    android:padding="16dp"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

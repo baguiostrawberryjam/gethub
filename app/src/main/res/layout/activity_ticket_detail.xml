@@ -13,7 +13,7 @@
         android:id="@+id/llTicketMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_gradient"
+        android:background="@drawable/bg_half_blk_gray"
         android:orientation="vertical"
         android:paddingBottom="0dp">
 
@@ -21,9 +21,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="32dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp"
             android:paddingTop="25dp">
 
             <Button
@@ -43,30 +42,20 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:stateListAnimator="@null"
+                android:text=""
                 android:textColor="@android:color/transparent"
-                app:backgroundTint="@null"
-                android:text=""/>
+                app:backgroundTint="@null" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
                 android:gravity="center"
-                android:text="REQUEST SUBMITTED!"
+                android:text="Ticket"
                 android:textColor="@color/white"
-                android:textSize="32sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="24dp"
-                android:gravity="center"
-                android:text="Your request for document access has been received."
-                android:textColor="@color/white"
-                android:textSize="13sp" />
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,15 +63,32 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="16dp"
-            android:background="@drawable/bg_panel_light_gray"
+            android:background="@drawable/bg_panel_white_rounded"
+            android:elevation="4dp"
             android:orientation="vertical"
             android:paddingHorizontal="32dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="21dp"
+                android:gravity="left"
+                android:text="Request Sent!"
+                android:textColor="@color/neutral_deep"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/neutral_lavender" />
 
             <TextView
                 android:id="@+id/tvTicketHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
                 android:layout_marginBottom="16dp"
                 android:text="TICKET REQ-0001"
                 android:textColor="@color/neutral_deep"
@@ -103,76 +109,106 @@
                 android:textStyle="bold"
                 tools:backgroundTint="@android:color/holo_orange_dark" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginBottom="24dp"
-                android:background="@color/neutral_lavender" />
-
-            <TextView
-                android:id="@+id/tvDocTypeLabel"
-                style="@style/InputLabelStyle"
-                android:layout_margin="0dp"
-                android:text="DOCUMENT TYPE"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvTicketDocType"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:text="Transcript of Records"
-                android:textColor="@color/neutral_deep"
-                android:textSize="16sp" />
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
 
-            <TextView
-                android:id="@+id/tvPurposeLabel"
-                style="@style/InputLabelStyle"
-                android:layout_margin="0dp"
-                android:text="PURPOSE OF REQUEST"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tvDocTypeLabel"
+                    style="@style/InputLabelStyle"
+                    android:layout_margin="0dp"
+                    android:text="DOCUMENT TYPE"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvTicketPurpose"
+                <TextView
+                    android:id="@+id/tvTicketDocType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:text="Transcript of Records"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:text="Job Application"
-                android:textColor="@color/neutral_deep"
-                android:textSize="16sp" />
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
 
-            <TextView
-                android:id="@+id/tvReqDateLabel"
-                style="@style/InputLabelStyle"
-                android:layout_margin="0dp"
-                android:text="REQUEST DATE"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tvPurposeLabel"
+                    style="@style/InputLabelStyle"
+                    android:layout_margin="0dp"
+                    android:text="PURPOSE OF REQUEST"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvTicketReqDate"
+                <TextView
+                    android:id="@+id/tvTicketPurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:text="Job Application"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:text="Nov 14, 2025"
-                android:textColor="@color/neutral_deep"
-                android:textSize="16sp" />
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
 
-            <TextView
-                android:id="@+id/tvApptDateLabel"
-                style="@style/InputLabelStyle"
-                android:layout_margin="0dp"
-                android:text="APPOINTMENT DATE"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/tvReqDateLabel"
+                    style="@style/InputLabelStyle"
+                    android:layout_margin="0dp"
+                    android:text="REQUEST DATE"
+                    android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvTicketApptDate"
+                <TextView
+                    android:id="@+id/tvTicketReqDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:text="Nov 14, 2025"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="45dp"
-                android:text="Not applicable"
-                android:textColor="@color/neutral_deep"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/tvApptDateLabel"
+                    style="@style/InputLabelStyle"
+                    android:layout_margin="0dp"
+                    android:text="APPOINTMENT DATE"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvTicketApptDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="45dp"
+                    android:text="Not applicable"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnCancelRequest"
