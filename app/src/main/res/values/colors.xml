@@ -4,6 +4,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#FF9E9E9E</color>
+    <color name="dark_gray">#FFFAFAFA</color>
     <color name="blue">#FF151B54</color>
 
     <!-- Design System Colors -->
@@ -19,7 +20,19 @@
     <color name="disabled_primary_purple">#805762D5</color>
     <color name="disabled_primary_purple_darker">#80434DB4</color>
     <color name="disabled_secondary_sky">#805FBFF9</color>
+    <color name="disabled_neutral_deep">#800C120C</color>
 
     <!-- Darker Versions (not dark mode)-->
     <color name="primary_purple_darker">#FF434DB4</color>
+
+    <!-- Status Colors -->
+    <color name="status_processing">#FF6B6B6B</color>
+    <color name="status_approved">#FFB68E00</color>
+    <color name="status_completed">#FF409E8B</color>
+    <color name="status_rejected">#FFC63737</color>
+
+    <color name="status_processing_bg">#FFF2F2F2</color>
+    <color name="status_approved_bg">#FFFFF7CC</color>
+    <color name="status_completed_bg">#FFC8FFEC</color>
+    <color name="status_rejected_bg">#FFFFE1E1</color>
 </resources>

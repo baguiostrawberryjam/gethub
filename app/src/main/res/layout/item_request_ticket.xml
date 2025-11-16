@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp"
+    android:padding="16dp"
     android:clickable="true"
     android:focusable="true"
     android:background="?attr/selectableItemBackground"
     android:layout_marginBottom="8dp"
-    android:backgroundTint="@color/neutral_lavender">
+    android:backgroundTint="@color/white">
 
     <TextView
         android:id="@+id/tvTicketDocName"
@@ -43,13 +43,13 @@
         android:text="Processing"
         android:textSize="12sp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:textColor="@color/status_processing"
         android:paddingHorizontal="8dp"
         android:paddingVertical="4dp"
         android:background="@drawable/sh_rounded_status_tag"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:backgroundTint="@android:color/holo_orange_dark"/>
+        tools:backgroundTint="@color/status_processing_bg"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
