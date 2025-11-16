@@ -13,6 +13,7 @@
     <color name="neutral_black">#FF171D1C</color>
     <color name="neutral_deep">#FF0C120C</color>
     <color name="light_gray">#F5F5F5</color>
+    <color name="light_orange">#FFF7CC</color>
 
     <!-- Disabled Colors -->
     <color name="disabled_primary_purple">#805762D5</color>

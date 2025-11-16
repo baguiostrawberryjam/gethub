@@ -66,7 +66,7 @@
             android:background="@drawable/bg_panel_white_rounded"
             android:elevation="4dp"
             android:orientation="vertical"
-            android:paddingHorizontal="32dp">
+            android:paddingHorizontal="27dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -89,7 +89,7 @@
                 android:id="@+id/tvTicketHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="6dp"
                 android:text="TICKET REQ-0001"
                 android:textColor="@color/neutral_deep"
                 android:textSize="28sp"
@@ -99,15 +99,15 @@
                 android:id="@+id/tvTicketStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="44dp"
                 android:background="@drawable/sh_rounded_status_tag"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
-                android:text="APPROVED"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:text="Approved"
+                android:textColor="#B68E00"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                tools:backgroundTint="@android:color/holo_orange_dark" />
+                tools:backgroundTint="@color/light_orange" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -172,7 +172,7 @@
                     android:layout_gravity="center_vertical"
                     android:contentDescription="Panel Icon"
                     android:padding="4dp"
-                    android:src="@drawable/ic_file_type" />
+                    android:src="@drawable/ic_clipboard_check" />
 
                 <View
                     android:layout_width="12dp"
@@ -275,8 +275,8 @@
             android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/bg_panel_white_rounded"
-            android:elevation="4dp"
+            android:background="@drawable/bg_warning_box"
+            android:elevation="1dp"
             android:orientation="horizontal"
             android:padding="15dp"
             android:paddingStart="20dp"
