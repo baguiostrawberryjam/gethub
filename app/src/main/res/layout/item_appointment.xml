@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="?attr/selectableItemBackground"
-    android:backgroundTint="@color/neutral_lavender"
+
+    android:background="@drawable/sel_button_item"
     android:clickable="true"
     android:focusable="true"
-    android:padding="12dp">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tvAppointmentDate"
@@ -43,12 +43,12 @@
         android:paddingHorizontal="8dp"
         android:paddingVertical="4dp"
         android:text="Pending"
-        android:textColor="@android:color/white"
+        android:textColor="@color/status_approved"
         android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:backgroundTint="@android:color/holo_orange_dark" />
+        tools:backgroundTint="@color/status_approved_bg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

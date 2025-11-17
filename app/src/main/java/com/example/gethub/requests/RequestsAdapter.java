@@ -83,7 +83,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.Reques
             tvTicketSummary.setText(summary);
 
             // 3. Status Tag (Business Rule: Color and Text)
-            tvTicketStatusTag.setText(ticket.getStatus().toUpperCase());
+            tvTicketStatusTag.setText(ticket.getStatus());
 
             int colorResId = getStatusColorResId(ticket.getStatus());
             tvTicketStatusTag.setTextColor(ContextCompat.getColor(context, colorResId));
@@ -126,7 +126,7 @@ public class RequestsAdapter extends RecyclerView.Adapter<RequestsAdapter.Reques
                 case "Rejected":
                     return R.color.status_rejected_bg; // Red
                 default:
-                    return R.color.gray;
+                    return R.color.status_processing; // Gray
             }
         }
     }

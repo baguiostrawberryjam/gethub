@@ -71,7 +71,7 @@ public class TicketDetailActivity extends AppCompatActivity {
         binding.tvTicketReqDate.setText(sdf.format(new Date(ticket.getRequestDate())));
 
         // --- 2. Status Display and Coloring ---
-        binding.tvTicketStatus.setText(ticket.getStatus().toUpperCase());
+        binding.tvTicketStatus.setText(ticket.getStatus());
 
         int colorResId = getStatusColorResId(ticket.getStatus());
         binding.tvTicketStatus.setTextColor(ContextCompat.getColor(this, colorResId));
@@ -195,7 +195,6 @@ public class TicketDetailActivity extends AppCompatActivity {
             binding.btnViewAppointment.setVisibility(View.VISIBLE);
             binding.btnViewAppointment.setEnabled(false);
             binding.btnViewAppointment.setText("Schedule"); // Custom disabled text
-            binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.neutral_lavender));
             return;
         }
 
@@ -232,11 +231,9 @@ public class TicketDetailActivity extends AppCompatActivity {
             if (linkedAppointment.getRescheduleCount() >= 1 || !shouldBeEnabled) {
                 // Disabled if limit reached OR not Approved/Completed
                 binding.btnViewAppointment.setEnabled(false);
-                binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.neutral_lavender));
             } else {
                 // Enabled for rescheduling
                 binding.btnViewAppointment.setEnabled(true);
-                binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.primary_purple));
             }
         } else {
             // No appointment exists (First-time schedule required)

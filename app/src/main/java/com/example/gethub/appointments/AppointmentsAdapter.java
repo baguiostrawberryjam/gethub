@@ -86,9 +86,12 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
                     appointment.getTicketId()));
 
             // 3. Status Tag (Business Rule: Color and Text)
-            tvAppointmentStatus.setText(appointment.getStatus().toUpperCase());
+            tvAppointmentStatus.setText(appointment.getStatus());
             int colorResId = getStatusColorResId(appointment.getStatus());
             tvAppointmentStatus.getBackground().setTint(ContextCompat.getColor(context, colorResId));
+
+            int colorResBgId = getStatusColorBgResId(appointment.getStatus());
+            tvAppointmentStatus.getBackground().setTint(ContextCompat.getColor(context, colorResBgId));
         }
 
         @Override
@@ -110,15 +113,26 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
         private int getStatusColorResId(String status) {
             switch (status) {
                 case "Pending":
-                    return android.R.color.darker_gray;
-                case "Approved":
-                    return android.R.color.holo_orange_dark;
+                    return R.color.status_approved; // Yellow/Orange
                 case "Completed":
-                    return android.R.color.holo_green_dark;
+                    return R.color.status_completed; // Green
                 case "Canceled":
-                    return android.R.color.holo_red_dark;
+                    return R.color.status_rejected; // Red
                 default:
-                    return R.color.gray;
+                    return R.color.status_processing; // Gray
+            }
+        }
+
+        private int getStatusColorBgResId(String status) {
+            switch (status) {
+                case "Pending":
+                    return R.color.status_approved_bg; // Yellow/Orange
+                case "Completed":
+                    return R.color.status_completed_bg; // Green
+                case "Canceled":
+                    return R.color.status_rejected_bg; // Red
+                default:
+                    return R.color.status_processing; // Gray
             }
         }
     }

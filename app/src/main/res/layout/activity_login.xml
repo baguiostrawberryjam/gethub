@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/sel_button_primary"
+            android:background="@drawable/sel_button_secondary"
             android:elevation="0dp"
             android:stateListAnimator="@null"
             android:text="Login"
