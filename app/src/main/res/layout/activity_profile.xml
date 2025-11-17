@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:fitsSystemWindows="true"
     tools:context=".profile.ProfileActivity">
 
     <LinearLayout
@@ -30,7 +29,7 @@
                     android:paddingVertical="12dp">
 
                     <Button
-                        android:id="@+id/btnBackToDashboard"
+                        android:id="@+id/btnBack"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="start"
@@ -258,7 +257,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
                     android:background="@drawable/bg_panel_light_gray"
                     android:orientation="horizontal"
                     android:padding="12dp">

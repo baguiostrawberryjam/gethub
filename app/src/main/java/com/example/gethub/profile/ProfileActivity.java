@@ -33,10 +33,18 @@ public class ProfileActivity extends AppCompatActivity {
             return;
         }
 
+        setupHeader();
         displayProfileData(user);
         setupLogoutButton();
 
         // FUTURE: Setup click handlers for Edit/Change Password/Settings
+    }
+
+    private void setupHeader() {
+        // Back Button: Finishes the current activity and returns to the previous screen.
+        binding.btnBack.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     private void displayProfileData(User user) {

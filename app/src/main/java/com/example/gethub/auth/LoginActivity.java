@@ -8,9 +8,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.gethub.MainActivity;
+import com.example.gethub.R;
 import com.example.gethub.databinding.ActivityLoginBinding;
 import com.example.gethub.home.HomeActivity;
 import com.example.gethub.models.User;
@@ -33,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
             User registeredUser = getIntent().getParcelableExtra("USER_DATA");
             loginViewModel.addRegisteredUser(registeredUser);
         }
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
 
         setupInputListeners();
         setupClickListeners();

@@ -55,6 +55,7 @@ public class DashboardFragment extends Fragment {
 
         // 3. Observe LiveData
         observeViewModel();
+
     }
 
     /**
@@ -90,7 +91,7 @@ public class DashboardFragment extends Fragment {
                 if (welcomeName == null || welcomeName.isEmpty()) {
                     welcomeName = user.getStudentId();
                 }
-                binding.tvWelcome.setText(String.format("Welcome, %s!", welcomeName));
+                // binding.tvWelcome.setText(String.format("Welcome, %s!", welcomeName));
             }
         });
 
