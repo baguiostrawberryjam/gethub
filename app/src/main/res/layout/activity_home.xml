@@ -18,7 +18,8 @@
         app:itemIconTint="@color/sel_bottom_nav_item"
         app:itemTextColor="@color/sel_bottom_nav_item"
 
-        app:layout_constraintBottom_toBottomOf="parent"  app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <FrameLayout
