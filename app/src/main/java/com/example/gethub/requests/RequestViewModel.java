@@ -223,7 +223,7 @@ public class RequestViewModel extends ViewModel {
         finalTicket.setInstant(doc.isInstant());
 
         String purpose = selectedPurpose.getValue();
-        if ("Others (Please Specify)".equals(purpose)) {
+        if ("Others (please specify)".equals(purpose)) {
             finalTicket.setPurposeOfRequest("Other: " + otherPurposeText.getValue());
         } else {
             finalTicket.setPurposeOfRequest(purpose);

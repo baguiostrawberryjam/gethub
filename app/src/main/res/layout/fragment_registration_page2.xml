@@ -5,84 +5,145 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".auth.RegistrationPage2Fragment">
 
     <LinearLayout
         android:id="@+id/llPage2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient"
         android:orientation="vertical"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="0dp">
 
-        <TextView
-            android:id="@+id/tvPageTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contact &amp; Verification (2/5)"
-            android:textSize="24sp"
-            android:textColor="@color/neutral_deep"
-            android:textStyle="bold"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="24dp"/>
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp"
+            android:paddingTop="64dp">
 
-        <!-- Email Input -->
-        <TextView
-            android:id="@+id/tvEmail"
-            style="@style/InputLabelStyle"
-            android:text="EMAIL ADDRESS (Required)"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:text="SIGN-UP"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etEmail"
-            style="@style/InputEditTextStyle"
-            android:hint="Enter valid email address"
-            android:inputType="textEmailAddress"
-            android:layout_marginBottom="0dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="Fill in the details to create your account"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/errEmail"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="Please enter a valid email address."/>
-
-        <!-- OTP Send Button (Updated ID to btnSendCode) -->
-        <TextView
-            android:id="@+id/tvSendCode"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Send Code"
-            android:gravity="end"
-            android:textSize="14sp"
-            android:textColor="@color/primary_purple"
-            android:textStyle="bold"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="4dp"
-            android:paddingVertical="4dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_main_panel_rounded"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp">
 
-        <!-- OTP Code Input (Updated ID to etOTP) -->
-        <TextView
-            android:id="@+id/tvOtpCode"
-            style="@style/InputLabelStyle"
-            android:text="OTP CODE (Required)"/>
+            <TextView
+                android:id="@+id/tvPageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="35dp"
+                android:text="Contact and Verification"
+                android:textColor="@color/neutral_deep"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etOTP"
-            style="@style/InputEditTextStyle"
-            android:hint="Enter 6-digit code"
-            android:inputType="number"
-            android:maxLength="6"
-            android:layout_marginBottom="0dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="35dp"
+                android:text="2 of 5"
+                android:textColor="@color/gray"
+                android:textSize="13sp" />
 
-        <!-- OTP Error Text (Updated ID to errOTP) -->
-        <TextView
-            android:id="@+id/errOTP"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="OTP must be 6 digits and verified."/>
+            <!-- Email Input -->
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/email_add_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold" />
 
+            <EditText
+                android:id="@+id/etEmail"
+                style="@style/InputEditTextStyle"
+                android:layout_marginBottom="0dp"
+                android:hint="Enter valid email address"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/errEmail"
+                style="@style/ErrorTextStyle"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="16dp"
+                tools:text="Please enter a valid email address." />
+
+            <!-- OTP Send Button (Updated ID to btnSendCode) -->
+            <TextView
+                android:id="@+id/tvSendCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="end"
+                android:padding="4dp"
+                android:paddingVertical="4dp"
+                android:text="Send Code"
+                android:textColor="@color/primary_purple"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <!-- OTP Code Input (Updated ID to etOTP) -->
+            <TextView
+                android:id="@+id/tvOtpCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/otp_code_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etOTP"
+                style="@style/InputEditTextStyle"
+                android:layout_marginBottom="0dp"
+                android:hint="Enter 6-digit code"
+                android:inputType="number"
+                android:maxLength="6" />
+
+            <!-- OTP Error Text (Updated ID to errOTP) -->
+            <TextView
+                android:id="@+id/errOTP"
+                style="@style/ErrorTextStyle"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="16dp"
+                tools:text="OTP must be 6 digits and verified." />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

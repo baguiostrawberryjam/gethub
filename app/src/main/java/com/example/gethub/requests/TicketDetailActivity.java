@@ -72,8 +72,12 @@ public class TicketDetailActivity extends AppCompatActivity {
 
         // --- 2. Status Display and Coloring ---
         binding.tvTicketStatus.setText(ticket.getStatus().toUpperCase());
+
         int colorResId = getStatusColorResId(ticket.getStatus());
-        binding.tvTicketStatus.getBackground().setTint(ContextCompat.getColor(this, colorResId));
+        binding.tvTicketStatus.setTextColor(ContextCompat.getColor(this, colorResId));
+
+        int colorResBgId = getStatusColorBgResId(ticket.getStatus());
+        binding.tvTicketStatus.getBackground().setTint(ContextCompat.getColor(this, colorResBgId));
 
         // --- 3. Handle Appointment Date Display (NEW LOGIC) ---
         handleAppointmentDetails(ticket);
@@ -96,70 +100,166 @@ public class TicketDetailActivity extends AppCompatActivity {
      * Handles the display logic for the Appointment Date field and the action button.
      * Business Rules: Reschedule limit, button visibility, button text.
      */
+//    private void handleAppointmentDetails(RequestTicket ticket) {
+//        // Only show appointment fields for Pick-up delivery
+//        boolean isPickUp = "Pick-up".equals(ticket.getDeliveryMethod());
+//        binding.tvApptDateLabel.setVisibility(isPickUp ? View.VISIBLE : View.GONE);
+//        binding.tvTicketApptDate.setVisibility(isPickUp ? View.VISIBLE : View.GONE);
+//
+//        // Assume default state (no appointment action required)
+//        binding.btnViewAppointment.setVisibility(View.GONE);
+//
+//        if (!isPickUp) {
+//            binding.tvTicketApptDate.setText("N/A - Digital Delivery");
+//            return;
+//        }
+//
+//        // --- FIX 1: Declare linkedAppointment as final/effectively final for use in the lambda ---
+//        final Appointment linkedAppointment;
+//        if (ticket.getAppointmentId() != null) {
+//            linkedAppointment = DataRepository.getAppointmentById(ticket.getAppointmentId());
+//        } else {
+//            linkedAppointment = null;
+//        }
+//        // --- END FIX 1 ---
+//
+//        boolean canSchedule = "Approved".equals(ticket.getStatus());
+//
+//        // Default text for "no appointment yet"
+//        String appointmentDateText = "Not yet scheduled";
+//
+//        if (linkedAppointment != null) {
+//            // Appointment exists: display date and set button text to RESCHEDULE
+//            SimpleDateFormat sdfFull = new SimpleDateFormat("MMM dd, yyyy 'at' hh:mm a", Locale.getDefault());
+//            appointmentDateText = sdfFull.format(new Date(linkedAppointment.getScheduledDate()));
+//
+//            // Set button text to Reschedule
+//            binding.btnViewAppointment.setText("RESCHEDULE APPOINTMENT");
+//            binding.btnViewAppointment.setVisibility(View.VISIBLE);
+//
+//            // --- Business Rule: Reschedule Limit Check (UI Disable) ---
+//            if (linkedAppointment.getRescheduleCount() >= 1) {
+//                // Disable the button if the limit is reached
+//                binding.btnViewAppointment.setEnabled(false);
+//                binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.neutral_lavender)); // Grey tint
+//            } else if (canSchedule) {
+//                // Enable button for rescheduling
+//                binding.btnViewAppointment.setEnabled(true);
+//                binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.primary_purple)); // Purple tint
+//            }
+//        } else if (canSchedule) {
+//            // No appointment exists but the ticket is in a state that requires one (Approved/Processing)
+//            // Set button text to SET SCHEDULE
+//            binding.btnViewAppointment.setText("SCHEDULE APPOINTMENT");
+//            binding.btnViewAppointment.setVisibility(View.VISIBLE);
+//            binding.btnViewAppointment.setEnabled(true);
+//            binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.primary_purple));
+//        }
+//
+//        binding.tvTicketApptDate.setText(appointmentDateText);
+//
+//        // --- Button Click Listener (FIX 2: Re-adding robust validation) ---
+//        binding.btnViewAppointment.setOnClickListener(v -> {
+//
+//            // Re-check reschedule limit for robustness, now using the final/effectively final linkedAppointment
+//            if (linkedAppointment != null && linkedAppointment.getRescheduleCount() >= 1) {
+//                Toast.makeText(this, "Reschedule limit reached. You can only reschedule once.", Toast.LENGTH_LONG).show();
+//                return;
+//            }
+//
+//            // PROCEED TO SCHEDULE/RESCHEDULE
+//            Intent intent = new Intent(TicketDetailActivity.this, ScheduleActivity.class);
+//            intent.putExtra(ScheduleActivity.EXTRA_TICKET_ID, ticket.getTicketId());
+//
+//            startActivity(intent);
+//        });
+//    }
+
     private void handleAppointmentDetails(RequestTicket ticket) {
-        // Only show appointment fields for Pick-up delivery
+        // Determine delivery type
         boolean isPickUp = "Pick-up".equals(ticket.getDeliveryMethod());
-        binding.tvApptDateLabel.setVisibility(isPickUp ? View.VISIBLE : View.GONE);
-        binding.tvTicketApptDate.setVisibility(isPickUp ? View.VISIBLE : View.GONE);
+        boolean isDigital = "Digital".equals(ticket.getDeliveryMethod());
 
-        // Assume default state (no appointment action required)
-        binding.btnViewAppointment.setVisibility(View.GONE);
+        // Define statuses for clarity
+        boolean isApproved = "Approved".equals(ticket.getStatus());
+        boolean isCompleted = "Completed".equals(ticket.getStatus());
+        boolean isProcessing = "Processing".equals(ticket.getStatus());
 
-        if (!isPickUp) {
+        // --- 1. Handle Digital Delivery (PERMANENTLY DISABLED) ---
+        if (isDigital) {
+            binding.tvApptDateLabel.setVisibility(View.VISIBLE);
+            binding.tvTicketApptDate.setVisibility(View.VISIBLE);
             binding.tvTicketApptDate.setText("N/A - Digital Delivery");
+
+            // FIX 1: Always visible, but permanently disabled and greyed out
+            binding.btnViewAppointment.setVisibility(View.VISIBLE);
+            binding.btnViewAppointment.setEnabled(false);
+            binding.btnViewAppointment.setText("Schedule"); // Custom disabled text
+            binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.neutral_lavender));
             return;
         }
 
-        // --- FIX 1: Declare linkedAppointment as final/effectively final for use in the lambda ---
+        // --- 2. Handle Pick-up Delivery (The main appointment logic) ---
+        // If it reaches here, delivery is Pick-up. Ensure fields are visible.
+        binding.tvApptDateLabel.setVisibility(View.VISIBLE);
+        binding.tvTicketApptDate.setVisibility(View.VISIBLE);
+        binding.btnViewAppointment.setVisibility(View.VISIBLE); // FIX 2: Always visible for Pick-up
+
+        // --- Retrieve linked appointment (exists if scheduled once) ---
         final Appointment linkedAppointment;
         if (ticket.getAppointmentId() != null) {
             linkedAppointment = DataRepository.getAppointmentById(ticket.getAppointmentId());
         } else {
             linkedAppointment = null;
         }
-        // --- END FIX 1 ---
-
-        boolean canSchedule = "Approved".equals(ticket.getStatus());
 
         // Default text for "no appointment yet"
         String appointmentDateText = "Not yet scheduled";
 
+        // --- Determine Enable State ---
+        boolean shouldBeEnabled = isApproved || isCompleted;
+
+        // --- 3. Check for Existing Appointment (RESCHEDULE logic) ---
         if (linkedAppointment != null) {
-            // Appointment exists: display date and set button text to RESCHEDULE
+            // Display date
             SimpleDateFormat sdfFull = new SimpleDateFormat("MMM dd, yyyy 'at' hh:mm a", Locale.getDefault());
             appointmentDateText = sdfFull.format(new Date(linkedAppointment.getScheduledDate()));
 
             // Set button text to Reschedule
-            binding.btnViewAppointment.setText("RESCHEDULE APPOINTMENT");
-            binding.btnViewAppointment.setVisibility(View.VISIBLE);
+            binding.btnViewAppointment.setText("Reschedule");
 
-            // --- Business Rule: Reschedule Limit Check (UI Disable) ---
-            if (linkedAppointment.getRescheduleCount() >= 1) {
-                // Disable the button if the limit is reached
+            // Reschedule Limit Check (UI Disable)
+            if (linkedAppointment.getRescheduleCount() >= 1 || !shouldBeEnabled) {
+                // Disabled if limit reached OR not Approved/Completed
                 binding.btnViewAppointment.setEnabled(false);
-                binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.neutral_lavender)); // Grey tint
-            } else if (canSchedule) {
-                // Enable button for rescheduling
+                binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.neutral_lavender));
+            } else {
+                // Enabled for rescheduling
                 binding.btnViewAppointment.setEnabled(true);
-                binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.primary_purple)); // Purple tint
+                binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.primary_purple));
             }
-        } else if (canSchedule) {
-            // No appointment exists but the ticket is in a state that requires one (Approved/Processing)
-            // Set button text to SET SCHEDULE
-            binding.btnViewAppointment.setText("SET APPOINTMENT SCHEDULE");
-            binding.btnViewAppointment.setVisibility(View.VISIBLE);
-            binding.btnViewAppointment.setEnabled(true);
-            binding.btnViewAppointment.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.primary_purple));
+        } else {
+            // No appointment exists (First-time schedule required)
+            binding.btnViewAppointment.setText("Schedule");
+
+            if (isProcessing) {
+                // Pick-up but still Processing (Disabled until approved)
+                binding.btnViewAppointment.setEnabled(false);
+            } else if (shouldBeEnabled) {
+                // Approved or Completed (Enabled for first-time schedule)
+                binding.btnViewAppointment.setEnabled(true);
+            }
         }
 
+        // --- 4. Final UI Update ---
         binding.tvTicketApptDate.setText(appointmentDateText);
 
-        // --- Button Click Listener (FIX 2: Re-adding robust validation) ---
+        // --- 5. Click Listener (Checks enabled state) ---
         binding.btnViewAppointment.setOnClickListener(v -> {
 
-            // Re-check reschedule limit for robustness, now using the final/effectively final linkedAppointment
-            if (linkedAppointment != null && linkedAppointment.getRescheduleCount() >= 1) {
-                Toast.makeText(this, "Reschedule limit reached. You can only reschedule once.", Toast.LENGTH_LONG).show();
+            // Use the built-in enabled check, which handles all processing/digital/limit logic
+            if (!binding.btnViewAppointment.isEnabled()) {
+                Toast.makeText(this, "Action disabled: Ticket not yet approved or limit reached.", Toast.LENGTH_LONG).show();
                 return;
             }
 
@@ -174,18 +274,35 @@ public class TicketDetailActivity extends AppCompatActivity {
     /**
      * Maps ticket status string to the appropriate Android color resource ID (Business Rule).
      */
+
+
     private int getStatusColorResId(String status) {
         switch (status) {
             case "Processing":
-                return android.R.color.darker_gray;
+                return R.color.status_processing; // Gray
             case "Approved":
-                return android.R.color.holo_orange_dark;
+                return R.color.status_approved; // Yellow/Orange
             case "Completed":
-                return android.R.color.holo_green_dark;
+                return R.color.status_completed; // Green
             case "Rejected":
-                return android.R.color.holo_red_dark;
+                return R.color.status_rejected; // Red
             default:
-                return R.color.black; // Fallback color (assuming you have a black defined)
+                return R.color.gray;
+        }
+    }
+
+    private int getStatusColorBgResId(String status) {
+        switch (status) {
+            case "Processing":
+                return R.color.status_processing_bg; // Gray
+            case "Approved":
+                return R.color.status_approved_bg; // Yellow/Orange
+            case "Completed":
+                return R.color.status_completed_bg; // Green
+            case "Rejected":
+                return R.color.status_rejected_bg; // Red
+            default:
+                return R.color.gray;
         }
     }
 }

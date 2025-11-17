@@ -59,21 +59,19 @@ public class RequestActivity extends AppCompatActivity {
     }
 
     private void setupNavigationButtons() {
+        // --- Next Button Logic (STAYS IN ACTIVITY) ---
         binding.btnNext.setOnClickListener(v -> {
             int currentPage = viewPager.getCurrentItem();
             requestViewModel.goToNextPage(currentPage);
         });
 
-        binding.btnBack.setOnClickListener(v -> {
-            int currentPage = viewPager.getCurrentItem();
-            requestViewModel.goToPreviousPage(currentPage);
-        });
+        // --- Back Button Logic REMOVED HERE ---
+        // The Fragment will now handle its local btnBack click listener.
 
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                binding.btnBack.setVisibility(position == 0 ? View.INVISIBLE : View.VISIBLE);
 
                 // Page 2 is the final page (index 1)
                 if (position == 1) {
@@ -81,11 +79,11 @@ public class RequestActivity extends AppCompatActivity {
                 } else {
                     binding.btnNext.setText(getString(R.string.btn_next_text));
                 }
+                // Visibility for btnBack and btnNext state are handled in the Fragments
                 updateNextButtonState(position);
             }
         });
 
-        binding.btnBack.setVisibility(View.INVISIBLE);
         binding.btnNext.setText(getString(R.string.btn_next_text));
     }
 

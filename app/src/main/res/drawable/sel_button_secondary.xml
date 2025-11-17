@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="250"
+    android:exitFadeDuration="250">
+    <!-- Disabled state (Input is incomplete) -->
+    <item android:state_enabled="false" android:drawable="@drawable/sh_secondary_disabled" />
+
+    <!-- Default/Enabled state -->
+    <item android:drawable="@drawable/sh_secondary_enabled" />
+</selector>

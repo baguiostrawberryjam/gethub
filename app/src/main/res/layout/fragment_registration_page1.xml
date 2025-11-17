@@ -5,77 +5,146 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".auth.RegistrationPage1Fragment">
 
     <LinearLayout
         android:id="@+id/llPage1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient"
         android:orientation="vertical"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="0dp">
 
-        <TextView
-            android:id="@+id/tvPageTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Personal Information (1/5)"
-            android:textSize="24sp"
-            android:textColor="@color/neutral_deep"
-            android:textStyle="bold"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="24dp"/>
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp"
+            android:paddingTop="64dp">
+
+            <TextView
+                android:id="@+id/tvPageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center"
+                android:text="SIGN-UP"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:text="Fill in the details to create your account"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+        </LinearLayout>
 
         <!-- First Name Input -->
-        <TextView
-            android:id="@+id/tvFirstName"
-            style="@style/InputLabelStyle"
-            android:text="FIRST NAME (Required)"/>
 
-        <EditText
-            android:id="@+id/etFirstName"
-            style="@style/InputEditTextStyle"
-            android:hint="Enter first name"
-            android:inputType="textPersonName|textCapWords"
-            android:layout_marginBottom="0dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_main_panel_rounded"
+            android:orientation="vertical"
+            android:paddingHorizontal="32dp">
 
-        <TextView
-            android:id="@+id/errFirstName"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="First name cannot be empty."/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="35dp"
+                android:text="Personal Information"
+                android:textColor="@color/neutral_deep"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <!-- Middle Name Input -->
-        <TextView
-            android:id="@+id/tvMiddleName"
-            style="@style/InputLabelStyle"
-            android:text="MIDDLE NAME (Optional)"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="35dp"
+                android:text="1 of 5"
+                android:textColor="@color/gray"
+                android:textSize="13sp" />
 
-        <EditText
-            android:id="@+id/etMiddleName"
-            style="@style/InputEditTextStyle"
-            android:hint="Enter middle name"
-            android:inputType="textPersonName|textCapWords"
-            android:layout_marginBottom="16dp"/>
+            <TextView
+                android:id="@+id/tvFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/first_name_label"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"  />
 
-        <!-- Last Name Input -->
-        <TextView
-            android:id="@+id/tvLastName"
-            style="@style/InputLabelStyle"
-            android:text="LAST NAME (Required)"/>
+            <EditText
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="13dp"
+                android:hint="Enter first name"
+                android:background="@drawable/sh_rounded_input"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:layout_marginHorizontal="16dp"
+                android:padding="16dp" />
 
-        <EditText
-            android:id="@+id/etLastName"
-            style="@style/InputEditTextStyle"
-            android:hint="Enter last name"
-            android:inputType="textPersonName|textCapWords"
-            android:layout_marginBottom="0dp"/>
+            <TextView
+                android:id="@+id/errFirstName"
+                style="@style/ErrorTextStyle"
+                android:layout_marginBottom="16dp"
+                tools:text="First name cannot be empty." />
 
-        <TextView
-            android:id="@+id/errLastName"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="Last name is required."/>
+            <!-- Middle Name Input -->
+            <TextView
+                android:id="@+id/tvMiddleName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="@string/middle_name_label" />
 
+            <EditText
+                android:id="@+id/etMiddleName"
+                style="@style/InputEditTextStyle"
+                android:layout_marginBottom="13dp"
+                android:hint="Enter middle name"
+                android:inputType="textPersonName|textCapWords" />
+
+            <!-- Last Name Input -->
+            <TextView
+                android:id="@+id/tvLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/last_name_label" />
+
+            <EditText
+                android:id="@+id/etLastName"
+                style="@style/InputEditTextStyle"
+                android:layout_marginBottom="0dp"
+                android:hint="Enter last name"
+                android:inputType="textPersonName|textCapWords" />
+
+            <TextView
+                android:id="@+id/errLastName"
+                style="@style/ErrorTextStyle"
+                android:layout_marginBottom="16dp"
+                tools:text="Last name is required." />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

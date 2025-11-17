@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                 // **UPDATED: Get the User object from the Success state**
                 User loggedInUser = ((LoginViewModel.LoginState.Success) loginState).getUser();
 
-                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
 
                 // **UPDATED: Navigate to HomeActivity and pass data**
                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);

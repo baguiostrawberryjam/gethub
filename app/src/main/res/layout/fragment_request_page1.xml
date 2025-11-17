@@ -1,113 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/svRequestPage1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:fitsSystemWindows="true"
     tools:context=".requests.RequestPage1Fragment">
 
     <LinearLayout
         android:id="@+id/llPage1Main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_half_blk_gray"
         android:orientation="vertical"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="0dp">
 
-        <TextView
-            android:id="@+id/tvPageTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Request Details (1/3)"
-            android:textSize="24sp"
-            android:textColor="@color/neutral_deep"
-            android:textStyle="bold"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="24dp"/>
-
-        <TextView
-            android:id="@+id/tvDeliveryMethod"
-            style="@style/InputLabelStyle"
-            android:text="DELIVERY METHOD (Required)"/>
-
-        <LinearLayout
-            android:id="@+id/llDeliveryButtons"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginHorizontal="16dp"
-            android:weightSum="2"
-            android:layout_marginBottom="8dp">
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp">
 
+<!--            di pa gumagana-->
             <Button
-                android:id="@+id/btnDigital"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Digital (Email)"
-                android:textColor="@color/neutral_deep"
-                android:background="@drawable/sh_rounded_input"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:layout_marginEnd="8dp"
-                app:backgroundTint="@null"/>
+                android:id="@+id/btnBackToDashboard"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@drawable/bg_circle_button"
+                android:drawableStart="@drawable/ic_arrow_back"
+                android:drawablePadding="0dp"
+                android:drawableTint="@color/neutral_deep"
+                android:elevation="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingHorizontal="12dp"
+                android:stateListAnimator="@null"
+                android:text=""
+                android:textColor="@android:color/transparent"
+                app:backgroundTint="@null"
 
-            <Button
-                android:id="@+id/btnPickup"
-                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pick-up (Physical)"
-                android:textColor="@color/neutral_deep"
-                android:background="@drawable/sh_rounded_input"
-                android:textAllCaps="false"
+                android:gravity="center"
+                android:text="Request"
+                android:textColor="@color/white"
                 android:textSize="16sp"
-                android:layout_marginStart="8dp"
-                app:backgroundTint="@null"/>
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:id="@+id/tvPageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="DOCUMENT"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:text="Fill in the details to request a document"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/errDeliveryMethod"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="Please select a delivery method."/>
 
-        <TextView
-            android:id="@+id/tvDocumentType"
-            style="@style/InputLabelStyle"
-            android:text="DOCUMENT TYPE (Required)"/>
-
-        <Spinner
-            android:id="@+id/spDocumentType"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:spinnerMode="dropdown"
-            android:dropDownHeight="240dp"/>
+            android:layout_marginHorizontal="24dp"
+            android:background="@drawable/bg_panel_white_rounded"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <TextView
-            android:id="@+id/errDocumentType"
-            style="@style/ErrorTextStyle"
-            android:layout_marginBottom="16dp"
-            tools:text="Please select the document you wish to request."/>
+            <LinearLayout
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_panel_gray_soft_rounded"
+                android:orientation="vertical"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="10dp">
 
-        <TextView
-            android:id="@+id/tvFeeLabel"
-            style="@style/InputLabelStyle"
-            android:text="SERVICE FEE"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Step 1 of 2"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvServiceFee"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="₱0.00"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/neutral_deep"
-            android:layout_marginHorizontal="16dp"
-            android:padding="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:padding="16dp">
 
+                <TextView
+                    android:id="@+id/tvDeliveryMethod"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="8dp"
+                    style="@style/InputLabelStyle"
+                    android:text="@string/deliv_method_label"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:id="@+id/llDeliveryButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btnDigital"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/sh_rounded_input"
+                        android:drawableTop="@drawable/ic_digital"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:text="Digital"
+                        android:textAllCaps="false"
+                        android:textColor="@color/neutral_deep"
+                        android:textSize="16sp"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/btnPickup"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/sh_rounded_input"
+                        android:drawableTop="@drawable/ic_pick_up"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:text="Pick-up"
+                        android:textAllCaps="false"
+                        android:textColor="@color/neutral_deep"
+                        android:textSize="16sp"
+                        app:backgroundTint="@null" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/errDeliveryMethod"
+                style="@style/ErrorTextStyle"
+                android:layout_marginBottom="16dp"
+                tools:text="Please select a delivery method." />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvDocumentType"
+                    style="@style/InputLabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/docu_type_label"/>
+
+                <Spinner
+                    android:id="@+id/spDocumentType"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:dropDownHeight="240dp"
+                    android:spinnerMode="dropdown" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/errDocumentType"
+                style="@style/ErrorTextStyle"
+                android:layout_marginBottom="16dp"
+                tools:text="Please select the document you wish to request." />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_panel_light_gray"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tvFeeLabel"
+                    style="@style/InputLabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/service_fee_type_label"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvServiceFee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:padding="5dp"
+                    android:text="₱ 0.00"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_warning_box"
+                android:orientation="horizontal"
+                android:paddingEnd="16dp"
+                android:paddingVertical="12dp">
+
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="12dp"
+                    android:background="@drawable/bg_red_line" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Please carefully review the selected documents before submitting your request."
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

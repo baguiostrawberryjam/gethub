@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.gethub.R;
 import com.example.gethub.databinding.FragmentRequestPage2Binding;
@@ -41,6 +42,7 @@ public class RequestPage2Fragment extends Fragment {
 
         setupFields();
         setupPurposeSpinner(binding.spPurpose);
+        setupBackButton();
         observeViewModel();
     }
 
@@ -63,6 +65,19 @@ public class RequestPage2Fragment extends Fragment {
                 viewModel.onOtherPurposeTextChanged(s.toString());
             }
         });
+    }
+
+    private void setupBackButton() {
+        // We assume the button ID is btnBack inside this fragment's binding object.
+        binding.btnBack.setOnClickListener(v -> {
+            // We need to access the parent Activity's ViewPager to get the current page index
+            // and tell the ViewModel to go back.
+            int currentPage = ((ViewPager2) requireActivity().findViewById(R.id.vpRequest)).getCurrentItem();
+            viewModel.goToPreviousPage(currentPage);
+        });
+
+        // Handle visibility: Since Page 2 is not the first page, the button should be visible.
+        binding.btnBack.setVisibility(View.VISIBLE);
     }
 
     private void setupPurposeSpinner(Spinner spinner) {
@@ -108,7 +123,7 @@ public class RequestPage2Fragment extends Fragment {
                 viewModel.onPurposeSelected(selected);
 
                 // Show/Hide Other Purpose EditText
-                if ("Others (Please Specify)".equals(selected)) {
+                if ("Others (please specify)".equals(selected)) {
                     binding.etOtherPurpose.setVisibility(View.VISIBLE);
                     binding.etOtherPurpose.requestFocus();
                 } else {
