@@ -107,7 +107,12 @@
             <!-- Middle Name Input -->
             <TextView
                 android:id="@+id/tvMiddleName"
-                style="@style/InputLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 android:text="@string/middle_name_label" />
 
             <EditText
@@ -120,7 +125,12 @@
             <!-- Last Name Input -->
             <TextView
                 android:id="@+id/tvLastName"
-                style="@style/InputLabelStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="16dp"
                 android:text="@string/last_name_label" />
 
             <EditText

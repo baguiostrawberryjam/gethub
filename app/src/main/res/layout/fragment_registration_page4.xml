@@ -77,8 +77,13 @@
             <!-- Contact Number Input -->
             <TextView
                 android:id="@+id/tvContactNumber"
-                style="@style/InputLabelStyle"
-                android:text="@string/contact_no_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/contact_no_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etContactNumber"
@@ -122,8 +127,13 @@
 
                     <TextView
                         android:id="@+id/tvAddressNo"
-                        style="@style/InputLabelStyle"
-                        android:text="@string/house_no_label" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="@string/house_no_label"
+                        android:textColor="@color/neutral_deep"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/etAddressNo"
@@ -147,8 +157,13 @@
 
                     <TextView
                         android:id="@+id/tvAddressStreet"
-                        style="@style/InputLabelStyle"
-                        android:text="@string/st_subdv_label" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:text="@string/st_subdv_label"
+                        android:textColor="@color/neutral_deep"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/etAddressStreet"
@@ -168,8 +183,13 @@
             <!-- Barangay Input -->
             <TextView
                 android:id="@+id/tvAddressBarangay"
-                style="@style/InputLabelStyle"
-                android:text="@string/brgy_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/brgy_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etAddressBarangay"
@@ -187,8 +207,13 @@
             <!-- City Input -->
             <TextView
                 android:id="@+id/tvAddressCity"
-                style="@style/InputLabelStyle"
-                android:text="@string/city_mun_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/city_mun_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etAddressCity"
@@ -206,8 +231,13 @@
             <!-- Province Input -->
             <TextView
                 android:id="@+id/tvAddressProvince"
-                style="@style/InputLabelStyle"
-                android:text="@string/province_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/province_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etAddressProvince"

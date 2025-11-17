@@ -76,8 +76,14 @@
             <!-- Student ID Input -->
             <TextView
                 android:id="@+id/tvStudentID"
-                style="@style/InputLabelStyle"
-                android:text="@string/stu_id_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/stu_id_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etStudentID"
@@ -96,8 +102,14 @@
             <!-- Password Input -->
             <TextView
                 android:id="@+id/tvPassword"
-                style="@style/InputLabelStyle"
-                android:text="@string/pass_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/pass_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etPassword"
@@ -115,8 +127,14 @@
             <!-- Confirm Password Input -->
             <TextView
                 android:id="@+id/tvConfirmPassword"
-                style="@style/InputLabelStyle"
-                android:text="@string/con_pass_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/con_pass_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etConfirmPassword"

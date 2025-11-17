@@ -76,8 +76,14 @@
             <!-- Email Input -->
             <TextView
                 android:id="@+id/tvEmail"
-                style="@style/InputLabelStyle"
-                android:text="@string/email_add_label"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/email_add_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etEmail"
@@ -89,8 +95,8 @@
             <TextView
                 android:id="@+id/errEmail"
                 style="@style/ErrorTextStyle"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="16dp"
                 tools:text="Please enter a valid email address." />
 
             <!-- OTP Send Button (Updated ID to btnSendCode) -->
@@ -114,8 +120,14 @@
             <!-- OTP Code Input (Updated ID to etOTP) -->
             <TextView
                 android:id="@+id/tvOtpCode"
-                style="@style/InputLabelStyle"
-                android:text="@string/otp_code_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/otp_code_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etOTP"
@@ -129,8 +141,8 @@
             <TextView
                 android:id="@+id/errOTP"
                 style="@style/ErrorTextStyle"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="16dp"
                 tools:text="OTP must be 6 digits and verified." />
         </LinearLayout>
     </LinearLayout>

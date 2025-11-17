@@ -76,8 +76,14 @@
             <!-- Campus Branch Spinner -->
             <TextView
                 android:id="@+id/tvCampusBranch"
-                style="@style/InputLabelStyle"
-                android:text="@string/campus_branch_label"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/campus_branch_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spCampusBranch"
@@ -98,8 +104,14 @@
             <!-- College Spinner -->
             <TextView
                 android:id="@+id/tvCollege"
-                style="@style/InputLabelStyle"
-                android:text="@string/college_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/college_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spCollege"
@@ -120,8 +132,14 @@
             <!-- Course/Program Spinner (Dynamically Loaded) -->
             <TextView
                 android:id="@+id/tvCourseProgram"
-                style="@style/InputLabelStyle"
-                android:text="@string/course_program_label" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/course_program_label"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spCourseProgram"

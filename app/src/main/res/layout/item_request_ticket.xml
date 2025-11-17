@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:layout_marginBottom="8dp"
+    android:background="?attr/selectableItemBackground"
+    android:backgroundTint="@color/white"
     android:clickable="true"
     android:focusable="true"
-    android:background="?attr/selectableItemBackground"
-    android:layout_marginBottom="8dp"
-    android:backgroundTint="@color/white">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tvTicketDocName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/neutral_deep"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/neutral_deep"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tvTicketStatusTag"
-        tools:text="Transcript of Records"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Transcript of Records" />
 
     <TextView
         android:id="@+id/tvTicketSummary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="@color/gray"
-        app:layout_constraintTop_toBottomOf="@id/tvTicketDocName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tvTicketStatusTag"
         android:layout_marginTop="2dp"
-        tools:text="REQ-0001 • Requested Nov 15, 2025"/>
+        android:textColor="@color/gray"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/tvTicketStatusTag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTicketDocName"
+        tools:text="REQ-0001 • Requested Nov 15, 2025" />
 
     <TextView
         android:id="@+id/tvTicketStatusTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Processing"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:textColor="@color/status_processing"
+        android:background="@drawable/sh_rounded_status_tag"
         android:paddingHorizontal="8dp"
         android:paddingVertical="4dp"
-        android:background="@drawable/sh_rounded_status_tag"
-        app:layout_constraintTop_toTopOf="parent"
+        android:text="Processing"
+        android:textColor="@color/status_processing"
+        android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:backgroundTint="@color/status_processing_bg"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:backgroundTint="@color/status_processing_bg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
