@@ -10,6 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import android.widget.TextView; // Make sure this is imported
+import android.widget.Toast;
+
+import androidx.core.content.ContextCompat; // For color tinting
+import com.example.gethub.data.DataRepository;
+import com.example.gethub.models.Notification;
+import com.example.gethub.models.RequestTicket;
+import com.example.gethub.requests.TicketDetailActivity;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import com.example.gethub.R;
 import com.example.gethub.databinding.FragmentDashboardBinding;
@@ -83,26 +94,63 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        // Observe Request Summary Data
+        // Observe Request Summary Data (Total, Pending, Completed)
         viewModel.getTotalRequests().observe(getViewLifecycleOwner(), count -> {
-            binding.llTotalRequestsCard.setVisibility(View.VISIBLE); // Ensure card is visible
+            binding.llTotalRequestsCard.setVisibility(View.VISIBLE);
             binding.tvTotalRequests.setText(String.valueOf(count));
         });
-
         viewModel.getPendingRequests().observe(getViewLifecycleOwner(), count -> {
             binding.tvPendingRequests.setText(String.valueOf(count));
         });
-
         viewModel.getCompletedRequests().observe(getViewLifecycleOwner(), count -> {
             binding.tvCompletedRequests.setText(String.valueOf(count));
         });
 
-        // Observe Notifications (Toggles the placeholder text visibility)
+        // Observe Notifications (Toggles placeholder OR binds the latest notification)
         viewModel.getNotifications().observe(getViewLifecycleOwner(), notifications -> {
             if (notifications == null || notifications.isEmpty()) {
+                // No notifications: Show placeholder, hide item
                 binding.tvNoNotifications.setVisibility(View.VISIBLE);
+                binding.layoutRecentNotification.getRoot().setVisibility(View.GONE); // Hide the include's root
             } else {
+                // Notifications exist: Hide placeholder, show item
                 binding.tvNoNotifications.setVisibility(View.GONE);
+                binding.layoutRecentNotification.getRoot().setVisibility(View.VISIBLE); // Show the include's root
+
+                Notification recentNotification = notifications.get(0);
+
+                // --- FIX: Access views via the nested binding object ---
+                TextView tvMessage = binding.layoutRecentNotification.tvNotificationMessage;
+                TextView tvTime = binding.layoutRecentNotification.tvNotificationTime;
+                TextView tvStatus = binding.layoutRecentNotification.tvNotificationStatus;
+                // --- End Fix ---
+
+                // --- Bind Data (Logic from NotificationAdapter) ---
+                tvMessage.setText(recentNotification.getMessage());
+
+                SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, hh:mm a", Locale.getDefault());
+                tvTime.setText(sdf.format(new Date(recentNotification.getTimestamp())));
+
+                if (recentNotification.isRead()) {
+                    tvStatus.setText("Read");
+                    tvStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray));
+                } else {
+                    tvStatus.setText("New/View Ticket");
+                    // Ensure the text color is set correctly for "New"
+                    tvStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.neutral_deep));
+                }
+
+                // --- Make the item clickable (using the include's root) ---
+                binding.layoutRecentNotification.getRoot().setOnClickListener(v -> {
+                    RequestTicket linkedTicket = DataRepository.getTicketById(recentNotification.getLinkedId());
+                    if (linkedTicket != null) {
+                        Intent intent = new Intent(requireContext(), TicketDetailActivity.class);
+                        intent.putExtra(TicketDetailActivity.EXTRA_TICKET, linkedTicket);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(requireContext(), "Error: Linked ticket not found.", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }

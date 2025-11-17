@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/svDashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,19 +13,17 @@
         android:id="@+id/llDashboardMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/dark_gray">
+        android:background="@color/dark_gray"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/llHeaderBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp"
-            android:background="@android:color/white"
-            android:elevation="4dp">
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp">
 
 
             <TextView
@@ -34,19 +32,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Dashboard"
+                android:textColor="@color/neutral_deep"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="@color/neutral_deep" />
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/ibNotifications"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/ic_notifications_filled"
+                android:layout_marginEnd="2dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="Notifications"
-                app:tint="@color/neutral_deep"
-                android:layout_marginEnd="8dp" />
+                android:src="@drawable/ic_notification"
+                app:tint="@color/neutral_deep" />
 
             <ImageButton
                 android:id="@+id/ibProfile"
@@ -63,139 +61,395 @@
             android:id="@+id/llDashboardContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp">
 
-        <TextView
-            android:id="@+id/tvWelcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Welcome to GetHub!"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/neutral_deep"
-            android:layout_marginBottom="24dp" />
+            <TextView
+                android:id="@+id/tvFilterPlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/sh_rounded_input"
+                android:drawableStart="@drawable/ic_search_outlined"
+                android:drawablePadding="10dp"
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="REQUEST SUMMARY"
-            android:textSize="14sp"
-            android:textColor="@color/neutral_deep"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
-
-        <LinearLayout
-            android:id="@+id/llStatusContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginBottom="24dp">
+                android:gravity="start|center_vertical"
+                android:padding="12dp"
+                android:text="Search"
+                app:drawableTint="@color/gray" />
 
             <LinearLayout
-                android:id="@+id/llTotalRequestsCard"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_panel_white_rounded"
+                android:elevation="1dp"
                 android:orientation="vertical"
-                android:padding="8dp"
-                android:background="@drawable/sh_rounded_card_neutral"
-                android:layout_marginEnd="4dp">
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="15dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvWelcome"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Total"
-                    android:textSize="12sp"
-                    android:textColor="@color/neutral_deep" />
-
-                <TextView
-                    android:id="@+id/tvTotalRequests"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="Welcome to"
                     android:textColor="@color/neutral_deep"
-                    android:textSize="28sp"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GetHub"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="40sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llPendingRequestsCard"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_panel_white_rounded"
+                android:elevation="1dp"
                 android:orientation="vertical"
-                android:padding="8dp"
-                android:background="@drawable/sh_rounded_card_neutral"
-                android:layout_marginHorizontal="4dp">
+                android:padding="24dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pending"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/holo_orange_dark" />
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tvPendingRequests"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Requests Summary"
+                        android:textColor="@color/neutral_deep"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnViewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_panel_gray_soft_rounded"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"
+                        android:stateListAnimator="@null"
+                        android:text="View All"
+                        android:textAllCaps="false"
+                        android:textColor="@color/neutral_deep"
+                        android:textSize="12sp" />
+
+
+                </LinearLayout>
+
+                <!--row 1-->
+
+                <LinearLayout
+                    android:id="@+id/llStatusContainer"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/holo_orange_dark" />
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:id="@+id/llTotalRequestsCard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_icon_card"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivRequestIcon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="Panel Icon"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_file_type" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <ImageButton
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:adjustViewBounds="true"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="More options"
+                                android:padding="4dp"
+                                android:src="@drawable/ic_kebab" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvTotalRequests"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="0"
+                            android:textColor="@color/neutral_deep"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="Requested"
+                            android:textColor="@color/status_processing"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llPendingRequestsCard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_icon_card"
+                        android:backgroundTint="@color/status_approved_bg"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivPendingIcon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="Panel Icon"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_processing" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <ImageButton
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:adjustViewBounds="true"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="More options"
+                                android:padding="4dp"
+                                android:src="@drawable/ic_kebab" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvPendingRequests"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:padding="2dp"
+                            android:textColor="@color/neutral_deep"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="Pending"
+                            android:textColor="@color/status_approved"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--                row 2-->
+                <LinearLayout
+                    android:id="@+id/llStatusContainer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:id="@+id/llCompletedRequestsCard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_icon_card"
+                        android:backgroundTint="@color/status_completed_bg"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivCompletedIcon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="Panel Icon"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_completed" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <ImageButton
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:adjustViewBounds="true"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="More options"
+                                android:padding="4dp"
+                                android:src="@drawable/ic_kebab" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvCompletedRequests"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="0"
+                            android:textColor="@color/neutral_deep"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="Completed"
+                            android:textColor="@color/status_completed"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llRejectedRequestsCard"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_icon_card"
+                        android:backgroundTint="@color/status_rejected_bg"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivRejectedIcon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:contentDescription="Panel Icon"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_rejected" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <ImageButton
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:adjustViewBounds="true"
+                                android:background="@android:color/transparent"
+                                android:contentDescription="More options"
+                                android:padding="4dp"
+                                android:src="@drawable/ic_kebab" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvRejectedRequests"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="0"
+                            android:textColor="@color/neutral_deep"
+                            android:textSize="35sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="Rejected"
+                            android:textColor="@color/status_rejected"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llCompletedRequestsCard"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:background="@drawable/bg_panel_white_rounded"
+                android:elevation="1dp"
                 android:orientation="vertical"
-                android:padding="8dp"
-                android:background="@drawable/sh_rounded_card_neutral"
-                android:layout_marginStart="4dp">
+                android:padding="24dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvRecentActivityHeader"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Completed"
-                    android:textSize="12sp"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:layout_marginBottom="16dp"
+                    android:text="Recent Activities"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tvCompletedRequests"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvNoNotifications"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/holo_green_dark" />
+                    android:gravity="center"
+                    android:padding="13dp"
+                    android:text="No recent notifications."
+                    android:visibility="visible" />
+
+                <include
+                    android:id="@+id/layoutRecentNotification"
+                    layout="@layout/item_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
             </LinearLayout>
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvRecentActivityHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="RECENT ACTIVITY"
-            android:textSize="14sp"
-            android:textColor="@color/neutral_deep"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:id="@+id/tvNoNotifications"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No recent notifications."
-            android:gravity="center"
-            android:padding="16dp"
-            android:visibility="visible" />
-
-        </LinearLayout>
-
     </LinearLayout>
-
 </ScrollView>
