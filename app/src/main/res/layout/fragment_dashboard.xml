@@ -115,8 +115,7 @@
                 android:background="@drawable/bg_panel_white_rounded"
                 android:elevation="1dp"
                 android:orientation="vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="15dp">
+                android:padding="24dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -129,7 +128,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Request Summary"
+                        android:text="Requests Summary"
                         android:textColor="@color/neutral_deep"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -158,7 +157,7 @@
                     android:id="@+id/llStatusContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="16dp"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
@@ -166,11 +165,11 @@
                         android:id="@+id/llTotalRequestsCard"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="6dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_icon_card"
                         android:orientation="vertical"
-                        android:padding="15dp">
+                        android:padding="16dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -296,7 +295,7 @@
                         android:id="@+id/llCompletedRequestsCard"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="6dp"
+                        android:layout_marginEnd="16dp"
                         android:layout_weight="1"
                         android:background="@drawable/bg_icon_card"
                         android:backgroundTint="@color/status_completed_bg"
@@ -419,12 +418,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:background="@drawable/bg_panel_white_rounded"
                 android:elevation="1dp"
                 android:orientation="vertical"
-                android:paddingHorizontal="24dp"
-                android:paddingVertical="15dp">
+                android:padding="24dp">
 
                 <TextView
                     android:id="@+id/tvRecentActivityHeader"
@@ -444,6 +441,14 @@
                     android:padding="13dp"
                     android:text="No recent notifications."
                     android:visibility="visible" />
+
+                <include
+                    android:id="@+id/layoutRecentNotification"
+                    layout="@layout/item_notification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
