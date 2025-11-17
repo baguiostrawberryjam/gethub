@@ -21,6 +21,8 @@
     <color name="disabled_primary_purple_darker">#80434DB4</color>
     <color name="disabled_secondary_sky">#805FBFF9</color>
     <color name="disabled_neutral_deep">#800C120C</color>
+    <color name="disabled_rejected">#80C63737</color>
+
 
     <!-- Darker Versions (not dark mode)-->
     <color name="primary_purple_darker">#FF434DB4</color>
@@ -35,4 +37,7 @@
     <color name="status_approved_bg">#FFFFF7CC</color>
     <color name="status_completed_bg">#FFC8FFEC</color>
     <color name="status_rejected_bg">#FFFFE1E1</color>
+
+    <!-- Pressed Button Colors -->
+    <color name="pressed_rejected">#FFA72F2F</color>
 </resources>

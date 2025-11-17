@@ -123,7 +123,7 @@ public class RequestPage2Fragment extends Fragment {
                 viewModel.onPurposeSelected(selected);
 
                 // Show/Hide Other Purpose EditText
-                if ("Others (Please Specify)".equals(selected)) {
+                if ("Others (please specify)".equals(selected)) {
                     binding.etOtherPurpose.setVisibility(View.VISIBLE);
                     binding.etOtherPurpose.requestFocus();
                 } else {

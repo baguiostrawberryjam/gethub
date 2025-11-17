@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="24dp"
-            android:paddingTop="25dp">
+            android:paddingVertical="12dp">
 
 <!--            di pa gumagana-->
             <Button
@@ -68,8 +68,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
+            android:layout_marginBottom="24dp"
             android:paddingHorizontal="24dp"
-            android:paddingTop="24dp">
+            android:paddingTop="12dp">
 
             <TextView
                 android:id="@+id/tvPageTitle"
@@ -87,7 +88,7 @@
                 android:gravity="start"
                 android:text="Fill in the details to request a document"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
 
@@ -95,11 +96,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
-            android:layout_marginTop="24dp"
             android:background="@drawable/bg_panel_white_rounded"
             android:elevation="4dp"
             android:orientation="vertical"
-            android:padding="22dp">
+            android:padding="24dp">
 
             <LinearLayout
                 android:layout_width="96dp"
