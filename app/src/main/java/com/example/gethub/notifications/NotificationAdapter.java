@@ -79,8 +79,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 tvNotificationStatus.setText("Read");
                 tvNotificationStatus.setTextColor(itemView.getContext().getColor(R.color.gray));
             } else {
-                tvNotificationStatus.setText("NEW / View Ticket");
-                tvNotificationStatus.setTextColor(itemView.getContext().getColor(R.color.primary_purple));
+                tvNotificationStatus.setText("New/View Ticket");
             }
         }
     }

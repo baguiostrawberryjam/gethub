@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingVertical="12dp"
-    android:background="@drawable/sh_rounded_card_neutral">
+    android:layout_marginBottom="8dp"
+
+    android:background="@drawable/sel_button_item"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tvNotificationMessage"
@@ -17,22 +19,34 @@
         android:layout_marginBottom="4dp"
         tools:text="Your request for Transcript of Records has been Approved. (TR-2025-001)" />
 
-    <TextView
-        android:id="@+id/tvNotificationTime"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="@color/gray"
-        tools:text="5 minutes ago" />
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="2dp">
 
-    <TextView
-        android:id="@+id/tvNotificationStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:textColor="@color/primary_purple"
-        android:textStyle="bold"
-        android:layout_marginTop="4dp"
-        tools:text="View Ticket" />
+        <TextView
+            android:id="@+id/tvNotificationTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            tools:text="5 minutes ago" />
+
+        <TextView
+            android:id="@+id/tvNotificationStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textSize="12sp"
+            android:textColor="@color/neutral_deep"
+            android:textStyle="bold"
+            tools:text="View Ticket" />
+
+    </LinearLayout>
 
 </LinearLayout>

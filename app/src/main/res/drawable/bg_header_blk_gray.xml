@@ -8,7 +8,7 @@
     </item>
 
     <!-- Black top section with fixed height -->
-    <item android:height="150dp" android:gravity="top">
+    <item android:height="120dp" android:gravity="top">
         <shape android:shape="rectangle">
             <solid android:color="#171D1C" />
         </shape>

@@ -241,16 +241,16 @@ public class RequestViewModel extends ViewModel {
                 initialStatus = "Completed";
                 finalTicket.setCompletionDate(System.currentTimeMillis());
                 finalTicket.setFileReferenceId("FILE-" + finalTicket.getTicketId());
-                notificationMessage = String.format("Your request for %s is **Completed** and ready.", doc.getDocName());
+                notificationMessage = String.format("Your request for %s is Completed and ready.", doc.getDocName());
             } else {
                 // Pick-up & Instant -> Approved
                 initialStatus = "Approved";
-                notificationMessage = String.format("Your request for %s has been **Approved**. Please schedule pickup.", doc.getDocName());
+                notificationMessage = String.format("Your request for %s has been Approved. Please schedule pick-up.", doc.getDocName());
             }
         } else {
             // Document requires processing -> Processing
             initialStatus = "Processing";
-            notificationMessage = String.format("Your request for %s has been submitted and is currently **Processing**.", doc.getDocName());
+            notificationMessage = String.format("Your request for %s has been submitted and is currently Processing.", doc.getDocName());
         }
 
         finalTicket.setStatus(initialStatus);

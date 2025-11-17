@@ -91,6 +91,11 @@ public class HomeActivity extends AppCompatActivity {
         // 2. Initialize ViewModel
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
+        // FIX: Manually set the status bar color here to override theme conflicts
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.neutral_deep));
+        }
+
         // 3. Setup Fragment Management
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), searchFragment, "4").hide(searchFragment).commit();
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), appointmentsFragment, "3").hide(appointmentsFragment).commit();
