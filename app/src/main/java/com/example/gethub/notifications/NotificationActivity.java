@@ -2,6 +2,9 @@
 package com.example.gethub.notifications;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -25,6 +28,16 @@ public class NotificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+
+
         binding = ActivityNotificationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 

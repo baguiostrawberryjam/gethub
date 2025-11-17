@@ -5,6 +5,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
@@ -12,6 +15,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -71,6 +75,15 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -90,11 +103,6 @@ public class HomeActivity extends AppCompatActivity {
 
         // 2. Initialize ViewModel
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-
-        // FIX: Manually set the status bar color here to override theme conflicts
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.neutral_deep));
-        }
 
         // 3. Setup Fragment Management
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), searchFragment, "4").hide(searchFragment).commit();
@@ -128,6 +136,7 @@ public class HomeActivity extends AppCompatActivity {
             return false;
 
         });
+
         askNotificationPermission();
     }
 

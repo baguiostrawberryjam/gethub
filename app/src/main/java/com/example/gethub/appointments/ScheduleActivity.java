@@ -3,6 +3,9 @@ package com.example.gethub.appointments;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.lifecycle.ViewModelProvider;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -33,6 +36,16 @@ public class ScheduleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+
+
         binding = ActivityScheduleBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
