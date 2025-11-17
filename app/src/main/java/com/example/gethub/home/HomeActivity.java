@@ -75,6 +75,15 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        WindowInsetsControllerCompat windowInsetsController =
+                WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        windowInsetsController.hide(WindowInsetsCompat.Type.systemBars());
+        windowInsetsController.setSystemBarsBehavior(
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        );
+
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -94,11 +103,6 @@ public class HomeActivity extends AppCompatActivity {
 
         // 2. Initialize ViewModel
         viewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-
-        // FIX: Manually set the status bar color here to override theme conflicts
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.neutral_deep));
-        }
 
         // 3. Setup Fragment Management
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), searchFragment, "4").hide(searchFragment).commit();
@@ -132,15 +136,6 @@ public class HomeActivity extends AppCompatActivity {
             return false;
 
         });
-
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-        // In your Activity's onCreate or onResume method
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false); // Enable edge-to-edge
-        WindowInsetsControllerCompat controller = new WindowInsetsControllerCompat(getWindow(), getWindow().getDecorView());
-        controller.hide(WindowInsetsCompat.Type.statusBars());
-        controller.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE);
 
         askNotificationPermission();
     }

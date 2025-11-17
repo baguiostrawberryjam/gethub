@@ -306,7 +306,7 @@
                     android:background="@drawable/sh_rounded_input"
                     android:backgroundTint="@color/status_rejected"
                     android:textAllCaps="false"
-                    android:text="Log Out"
+                    android:text="Logout"
                     android:textColor="@android:color/white"
                     android:textSize="16sp" />
             </LinearLayout>
