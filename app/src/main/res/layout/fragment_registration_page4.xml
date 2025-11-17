@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/svPage4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,74 +13,118 @@
         android:id="@+id/llPage4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_gradient"
+        android:background="@drawable/bg_half_blk_gray"
         android:orientation="vertical"
         android:paddingBottom="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp">
+
+            <!--            di pa gumagana-->
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@drawable/bg_circle_button"
+                android:drawableStart="@drawable/ic_arrow_back"
+                android:drawablePadding="0dp"
+                android:drawableTint="@color/neutral_deep"
+                android:elevation="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingHorizontal="12dp"
+                android:stateListAnimator="@null"
+                android:text=""
+                android:textColor="@android:color/transparent"
+                app:backgroundTint="@null"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvPageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Sign-up"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingHorizontal="32dp"
-            android:paddingTop="64dp">
+            android:layout_marginBottom="24dp"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="12dp">
 
             <TextView
+                android:id="@+id/tvPageHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="center"
-                android:text="SIGN-UP"
+                android:gravity="start"
+                android:text="CONTACT INFORMATION"
                 android:textColor="@color/white"
-                android:textSize="32sp"
+                android:textSize="40sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="24dp"
-                android:gravity="center"
+                android:layout_height="match_parent"
+                android:gravity="start"
                 android:text="Fill in the details to create your account"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
             android:background="@drawable/bg_main_panel_rounded"
             android:orientation="vertical"
-            android:paddingHorizontal="32dp">
+            android:paddingHorizontal="40dp"
+            android:paddingTop="40dp">
 
-
-            <TextView
-                android:id="@+id/tvPageTitle"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="96dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="35dp"
-                android:text="Contact and Address"
-                android:textColor="@color/neutral_deep"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_panel_gray_soft_rounded"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="30dp"
-                android:text="4 of 5"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Step 4 of 5"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
 
             <!-- Contact Number Input -->
             <TextView
                 android:id="@+id/tvContactNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="4dp"
                 android:text="@string/contact_no_label"
                 android:textColor="@color/neutral_deep"
                 android:textSize="16sp"
@@ -87,9 +132,14 @@
 
             <EditText
                 android:id="@+id/etContactNumber"
-                style="@style/InputEditTextStyle"
-                android:layout_marginBottom="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/sh_rounded_input"
                 android:hint="e.g., 09XX-XXX-XXXX"
+                android:padding="16dp"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp"
                 android:inputType="phone"
                 android:maxLength="11" />
 
@@ -104,8 +154,7 @@
                 android:id="@+id/tvAddressHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="13dp"
+                android:layout_marginBottom="12dp"
                 android:text="PERMANENT ADDRESS"
                 android:textColor="@color/neutral_deep"
                 android:textSize="16sp"
@@ -117,19 +166,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                android:layout_marginBottom="12dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_weight="0.7"
+                    android:orientation="vertical"
+                    android:gravity="start"
+                    android:layout_marginEnd="16dp">
 
                     <TextView
                         android:id="@+id/tvAddressNo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
                         android:text="@string/house_no_label"
                         android:textColor="@color/neutral_deep"
                         android:textSize="16sp"
@@ -137,9 +188,14 @@
 
                     <EditText
                         android:id="@+id/etAddressNo"
-                        style="@style/InputEditTextStyle"
-                        android:layout_marginBottom="13dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:hint="House No."
+
+                        android:background="@drawable/sh_rounded_input"
+                        android:textSize="16sp"
+                        android:textColor="@color/neutral_deep"
+                        android:padding="16dp"
                         android:inputType="text" />
 
                     <TextView
@@ -152,14 +208,15 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_weight="1.3"
+                    android:orientation="vertical"
+                    android:gravity="start"
+                    android:layout_marginEnd="16dp">
 
                     <TextView
                         android:id="@+id/tvAddressStreet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="16dp"
                         android:text="@string/st_subdv_label"
                         android:textColor="@color/neutral_deep"
                         android:textSize="16sp"
@@ -167,10 +224,15 @@
 
                     <EditText
                         android:id="@+id/etAddressStreet"
-                        style="@style/InputEditTextStyle"
-                        android:layout_marginBottom="13dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:hint="Street Name"
-                        android:inputType="textPostalAddress" />
+
+                        android:background="@drawable/sh_rounded_input"
+                        android:textSize="16sp"
+                        android:textColor="@color/neutral_deep"
+                        android:padding="16dp"
+                        android:inputType="text"  />
 
                     <TextView
                         android:id="@+id/errAddressStreet"
@@ -185,7 +247,6 @@
                 android:id="@+id/tvAddressBarangay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
                 android:text="@string/brgy_label"
                 android:textColor="@color/neutral_deep"
                 android:textSize="16sp"
@@ -193,9 +254,16 @@
 
             <EditText
                 android:id="@+id/etAddressBarangay"
-                style="@style/InputEditTextStyle"
-                android:layout_marginBottom="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:hint="Barangay"
+
+                android:background="@drawable/sh_rounded_input"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:padding="16dp"
+
                 android:inputType="textPostalAddress" />
 
             <TextView
@@ -209,7 +277,6 @@
                 android:id="@+id/tvAddressCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
                 android:text="@string/city_mun_label"
                 android:textColor="@color/neutral_deep"
                 android:textSize="16sp"
@@ -217,9 +284,15 @@
 
             <EditText
                 android:id="@+id/etAddressCity"
-                style="@style/InputEditTextStyle"
-                android:layout_marginBottom="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:hint="City or Municipality"
+
+                android:background="@drawable/sh_rounded_input"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:padding="16dp"
                 android:inputType="textPostalAddress" />
 
             <TextView
@@ -233,7 +306,6 @@
                 android:id="@+id/tvAddressProvince"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
                 android:text="@string/province_label"
                 android:textColor="@color/neutral_deep"
                 android:textSize="16sp"
@@ -241,9 +313,15 @@
 
             <EditText
                 android:id="@+id/etAddressProvince"
-                style="@style/InputEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
                 android:hint="Province"
+
+                android:background="@drawable/sh_rounded_input"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:padding="16dp"
                 android:inputType="textPostalAddress" />
 
             <TextView

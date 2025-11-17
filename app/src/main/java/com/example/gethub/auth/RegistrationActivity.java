@@ -45,23 +45,25 @@ public class RegistrationActivity extends AppCompatActivity {
         viewPager.setAdapter(pagerAdapter);
         viewPager.setUserInputEnabled(false);
     }
+    public ViewPager2 getViewPager() {
+        return viewPager;
+    }
 
     private void setupNavigationButtons() {
+        // --- Next Button Logic (STAYS IN ACTIVITY) ---
         binding.btnNext.setOnClickListener(v -> {
             int currentPage = viewPager.getCurrentItem();
             registrationViewModel.goToNextPage(currentPage);
         });
 
-        binding.btnBack.setOnClickListener(v -> {
-            int currentPage = viewPager.getCurrentItem();
-            registrationViewModel.goToPreviousPage(currentPage);
-        });
+        // --- Back Button Listener REMOVED HERE ---
+        // The Fragments will now handle the click action for btnBack.
 
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-                binding.btnBack.setVisibility(position == 0 ? View.INVISIBLE : View.VISIBLE);
+
                 if (position == 4) {
                     binding.btnNext.setText(getString(R.string.btn_register_text));
                 } else {
@@ -71,7 +73,7 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-        binding.btnBack.setVisibility(View.INVISIBLE);
+        // NOTE: The visibility initial state MUST REMAIN IN THE ACTIVITY
         binding.btnNext.setText(getString(R.string.btn_next_text));
     }
 

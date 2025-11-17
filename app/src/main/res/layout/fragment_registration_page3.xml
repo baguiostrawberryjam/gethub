@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/svPage3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,73 +13,117 @@
         android:id="@+id/llPage3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_gradient"
+        android:background="@drawable/bg_half_blk_gray"
         android:orientation="vertical"
         android:paddingBottom="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp">
+
+            <!--            di pa gumagana-->
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@drawable/bg_circle_button"
+                android:drawableStart="@drawable/ic_arrow_back"
+                android:drawablePadding="0dp"
+                android:drawableTint="@color/neutral_deep"
+                android:elevation="0dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingHorizontal="12dp"
+                android:stateListAnimator="@null"
+                android:text=""
+                android:textColor="@android:color/transparent"
+                app:backgroundTint="@null"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvPageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Sign-up"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingHorizontal="32dp"
-            android:paddingTop="64dp">
+            android:layout_marginBottom="24dp"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="12dp">
 
             <TextView
+                android:id="@+id/tvPageHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="center"
-                android:text="SIGN-UP"
+                android:gravity="start"
+                android:text="ACCOUNT CREDENTIALS"
                 android:textColor="@color/white"
-                android:textSize="32sp"
+                android:textSize="40sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="24dp"
-                android:gravity="center"
+                android:layout_height="match_parent"
+                android:gravity="start"
                 android:text="Fill in the details to create your account"
                 android:textColor="@color/white"
-                android:textSize="13sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="24dp"
             android:background="@drawable/bg_main_panel_rounded"
             android:orientation="vertical"
-            android:paddingHorizontal="32dp">
+            android:paddingHorizontal="40dp"
+            android:paddingTop="40dp">
 
-            <TextView
-                android:id="@+id/tvPageTitle"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="96dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="35dp"
-                android:text="Set Credentials"
-                android:textColor="@color/neutral_deep"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_panel_gray_soft_rounded"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="35dp"
-                android:text="3 of 5"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Step 3 of 5"
+                    android:textColor="@color/neutral_deep"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
 
             <!-- Student ID Input -->
             <TextView
                 android:id="@+id/tvStudentID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/stu_id_label"
                 android:textColor="@color/neutral_deep"
@@ -87,16 +132,19 @@
 
             <EditText
                 android:id="@+id/etStudentID"
-                style="@style/InputEditTextStyle"
-                android:layout_marginBottom="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/sh_rounded_input"
                 android:hint="Enter 10-digit student ID"
-                android:inputType="number"
-                android:maxLength="10" />
+                android:padding="16dp"
+                android:textColor="@color/neutral_deep"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/errStudentId"
                 style="@style/ErrorTextStyle"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="12dp"
                 tools:text="Student ID must be 10 digits." />
 
             <!-- Password Input -->
@@ -104,8 +152,6 @@
                 android:id="@+id/tvPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="4dp"
                 android:text="@string/pass_label"
                 android:textColor="@color/neutral_deep"
                 android:textSize="16sp"
@@ -113,15 +159,21 @@
 
             <EditText
                 android:id="@+id/etPassword"
-                style="@style/InputEditTextStyle"
-                android:layout_marginBottom="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:hint="Min. of 8 characters"
+                android:background="@drawable/sh_rounded_input"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:padding="16dp"
+
                 android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/errPassword"
                 style="@style/ErrorTextStyle"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="12dp"
                 tools:text="Password must be at least 8 characters." />
 
             <!-- Confirm Password Input -->
@@ -129,8 +181,6 @@
                 android:id="@+id/tvConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginBottom="4dp"
                 android:text="@string/con_pass_label"
                 android:textColor="@color/neutral_deep"
                 android:textSize="16sp"
@@ -138,15 +188,21 @@
 
             <EditText
                 android:id="@+id/etConfirmPassword"
-                style="@style/InputEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
                 android:hint="Re-enter password"
+                android:background="@drawable/sh_rounded_input"
+                android:textSize="16sp"
+                android:textColor="@color/neutral_deep"
+                android:padding="16dp"
+
                 android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/errConfirmPassword"
                 style="@style/ErrorTextStyle"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="12dp"
                 tools:text="Passwords do not match." />
         </LinearLayout>
     </LinearLayout>

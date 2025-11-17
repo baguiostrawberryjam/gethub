@@ -12,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.gethub.R;
 import com.example.gethub.databinding.FragmentRegistrationPage1Binding;
 
 import java.util.function.Consumer;
@@ -69,8 +71,34 @@ public class RegistrationPage1Fragment extends Fragment {
                 binding.etLastName.setText(user.getLastName());
             }
         });
+        setupBackButton();
     }
 
+    private void setupBackButton() {
+        // FIX: Use the fragment's View Binding to find the local btnBack
+        binding.btnBack.setOnClickListener(v -> {
+
+            // Replicate the logic from RegistrationActivity's OnBackPressedDispatcher
+            ViewPager2 viewPager = getViewPager();
+            if (viewPager == null) return;
+
+            if (viewPager.getCurrentItem() == 0) {
+                // If on the first page, pressing back closes the Activity
+                requireActivity().finish();
+            } else {
+                // On any other page, use the ViewModel to go back
+                viewModel.goToPreviousPage(viewPager.getCurrentItem());
+            }
+        });
+    }
+
+    private ViewPager2 getViewPager() {
+        if (getActivity() instanceof RegistrationActivity) {
+            // Access the public getViewPager() method we created in the Activity
+            return ((RegistrationActivity) getActivity()).getViewPager();
+        }
+        return null;
+    }
     /**
      * Helper method to reduce boilerplate for TextWatchers used for real-time validation.
      * @param editText The EditText view to watch.
