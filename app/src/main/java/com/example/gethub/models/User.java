@@ -1,5 +1,6 @@
 package com.example.gethub.models;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -32,6 +33,8 @@ public class User implements Parcelable {
     private String campusBranch;
     private String college;
     private String courseProgram;
+    private byte[] userImage;
+    private String userImageTag;
 
     // --- Constructor ---
     public User() {
@@ -52,9 +55,18 @@ public class User implements Parcelable {
         this.campusBranch = "";
         this.college = "";
         this.courseProgram = "";
+        this.userImageTag = "";
     }
 
     // --- Getters and Setters (Updated for completeness) ---
+
+    public byte[] getUserImage() { return userImage; }
+    public void setUserImage(byte[] profileImage) { this.userImage = profileImage; }
+
+    public String getUserImageTag() {
+        return userImageTag;
+    }
+    public void setUserImageTag(String imageTag) { this.userImageTag = imageTag; }
 
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
@@ -124,6 +136,7 @@ public class User implements Parcelable {
         campusBranch = in.readString();
         college = in.readString();
         courseProgram = in.readString();
+        userImage = in.createByteArray();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -161,5 +174,6 @@ public class User implements Parcelable {
         dest.writeString(campusBranch);
         dest.writeString(college);
         dest.writeString(courseProgram);
+        dest.writeByteArray(userImage);
     }
 }

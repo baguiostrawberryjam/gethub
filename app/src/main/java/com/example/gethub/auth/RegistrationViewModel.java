@@ -71,6 +71,12 @@ public class RegistrationViewModel extends ViewModel {
         availableCourses.setValue(new ArrayList<>(Arrays.asList("Select Course/Program")));
     }
 
+    public void updateProfileImage(byte[] imageBytes) {
+        currentUser.getValue().setUserImage(imageBytes);
+        currentUser.getValue().setUserImageTag("image_selected");
+        validatePage3();
+    }
+
     public LiveData<User> getCurrentUser() { return currentUser; }
     public LiveData<Integer> getNavigateToPage() { return navigateToPage; }
     public LiveData<User> getRegistrationCompleteEvent() { return registrationCompleteEvent; }
@@ -198,11 +204,21 @@ public class RegistrationViewModel extends ViewModel {
         }
         page3Valid.setValue(isPage3Valid());
     }
-    private boolean isPage3Valid() { User u = currentUser.getValue(); return u != null && u.getStudentId().trim().length() == 10 && passwordPattern.matcher(u.getPassword()).matches() && u.getPassword().equals(confirmPassword.getValue()); }
+    private boolean isPage3Valid() {
+        User u = currentUser.getValue();
+        // Check if U is not null, then check the tag safely
+        boolean isImageSelected = u != null && "image_selected".equals(u.getUserImageTag());
+
+        return isImageSelected
+                && u.getStudentId().trim().length() == 10
+                && passwordPattern.matcher(u.getPassword()).matches()
+                && u.getPassword().equals(confirmPassword.getValue());
+    }
     private void validatePage3() {
         if (currentUser.getValue().getStudentId().trim().isEmpty()) errStudentId.setValue("Student ID is required.");
         onPasswordChanged(currentUser.getValue().getPassword());
         if (confirmPassword.getValue().isEmpty()) errConfirmPassword.setValue("Please confirm your password.");
+
     }
 
     // Page 4: Address
