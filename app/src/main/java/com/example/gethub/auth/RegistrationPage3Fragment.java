@@ -1,13 +1,21 @@
 package com.example.gethub.auth;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.content.Intent;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -16,7 +24,9 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.gethub.R;
 import com.example.gethub.databinding.FragmentRegistrationPage3Binding;
+import com.example.gethub.models.User;
 
+import java.io.ByteArrayOutputStream;
 import java.util.function.Consumer;
 
 /**
@@ -26,6 +36,12 @@ public class RegistrationPage3Fragment extends Fragment {
 
     private FragmentRegistrationPage3Binding binding;
     private RegistrationViewModel viewModel;
+
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final int REQUEST_CAMERA_PERMISSION = 100;
+
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -81,6 +97,8 @@ public class RegistrationPage3Fragment extends Fragment {
             }
         });
         setupBackButton();
+
+        setupCameraButton();
     }
 
     private void setupBackButton() {
@@ -100,6 +118,48 @@ public class RegistrationPage3Fragment extends Fragment {
             }
         });
     }
+
+    private void setupCameraButton() {
+        binding.openCameraBtn.setOnClickListener(v -> {
+            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            cameraLauncher.launch(cameraIntent);
+        });
+    }
+
+    private ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Bundle extras = result.getData().getExtras();
+                    Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+                    Matrix matrix = new Matrix();
+                    if (imageBitmap.getWidth() > imageBitmap.getHeight()) {
+                        matrix.postRotate(90);
+                        imageBitmap = Bitmap.createBitmap(
+                                imageBitmap, 0, 0,
+                                imageBitmap.getWidth(), imageBitmap.getHeight(),
+                                matrix, true
+                        );
+                    }
+
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+                    imageBitmap.compress(Bitmap.CompressFormat.PNG,90, stream);
+                    byte[] byteArray = stream.toByteArray();
+
+                    if (viewModel != null && viewModel.getCurrentUser() != null) {
+                        viewModel.updateProfileImage(byteArray);
+                    }
+
+                    binding.profileImage.setImageBitmap(imageBitmap);
+                    binding.profileImage.setTag("image_selected");
+
+
+                }
+            }
+            );
+
 
     private ViewPager2 getViewPager() {
         if (getActivity() instanceof RegistrationActivity) {
