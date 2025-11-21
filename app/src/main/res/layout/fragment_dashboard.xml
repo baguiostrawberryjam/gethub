@@ -45,11 +45,16 @@
                 android:src="@drawable/ic_notification"
                 app:tint="@color/neutral_deep" />
 
-            <ImageButton
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ibProfile"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/sh_profile_circle_border"
+
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/white"
+                app:shapeAppearanceOverlay="@style/CircularImage"
+
                 android:contentDescription="Profile"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_profile_filled" />

@@ -110,6 +110,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onResume();
         if (loggedInStudentId != null) {
             viewModel.loadDashboardData(loggedInStudentId);
+            viewModel.setUser(loggedInUser);
         }
 
         // FIX: Check for the flag to force selection of the Home tab
