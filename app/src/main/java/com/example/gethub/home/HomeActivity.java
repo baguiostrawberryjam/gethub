@@ -1,21 +1,14 @@
-// File: com.example.gethub.home.HomeActivity.java (FINAL SYNCHRONIZATION)
+// File: com.example.gethub.home.HomeActivity.java
 package com.example.gethub.home;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -25,8 +18,6 @@ import com.example.gethub.R;
 import com.example.gethub.appointments.AppointmentsFragment;
 import com.example.gethub.databinding.ActivityHomeBinding;
 import com.example.gethub.models.User;
-import com.example.gethub.notifications.NotificationActivity; // NEW IMPORT
-import com.example.gethub.profile.ProfileActivity; // NEW IMPORT
 import com.example.gethub.requests.RequestActivity;
 import com.example.gethub.requests.RequestsFragment;
 
@@ -37,7 +28,7 @@ public class HomeActivity extends AppCompatActivity {
     private HomeViewModel viewModel;
     public ActivityHomeBinding binding;
     public String loggedInStudentId;
-    public User loggedInUser; // Added to easily pass to Profile Activity
+    public User loggedInUser;
 
     // Fragments for Navigation
     final Fragment dashboardFragment = new DashboardFragment();
@@ -46,31 +37,6 @@ public class HomeActivity extends AppCompatActivity {
     final Fragment searchFragment = new SearchFragment();
     final FragmentManager fragmentManager = getSupportFragmentManager();
     Fragment activeFragment = dashboardFragment;
-
-    private final ActivityResultLauncher<String> requestPermissionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
-                if (isGranted) {
-                    // Permission is granted. You can now show notifications.
-                    Toast.makeText(this, "Notification permission granted!", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Permission is denied.
-                    Toast.makeText(this, "Notifications will not be shown.", Toast.LENGTH_SHORT).show();
-                }
-            });
-
-    private void askNotificationPermission() {
-        // This is only required for Android 13 (API 33) and higher
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            // Check if the permission is already granted
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
-                    PackageManager.PERMISSION_GRANTED) {
-                // You can log this or show a toast
-            } else {
-                // Permission is not granted. Launch the dialog to ask the user.
-                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
-            }
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +76,7 @@ public class HomeActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), requestsFragment, "2").hide(requestsFragment).commit();
         fragmentManager.beginTransaction().add(binding.flContainer.getId(), dashboardFragment, "1").commit();
 
-        // 5. Setup Bottom Navigation Listener
+        // 4. Setup Bottom Navigation Listener
         binding.bnvMain.setOnNavigationItemSelectedListener(item -> {
             int itemId = item.getItemId();
 
@@ -134,10 +100,9 @@ public class HomeActivity extends AppCompatActivity {
                 return false;
             }
             return false;
-
         });
 
-        askNotificationPermission();
+        // Notification permission logic removed (Handled in LoginActivity)
     }
 
     @Override
@@ -145,6 +110,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onResume();
         if (loggedInStudentId != null) {
             viewModel.loadDashboardData(loggedInStudentId);
+            viewModel.setUser(loggedInUser);
         }
 
         // FIX: Check for the flag to force selection of the Home tab

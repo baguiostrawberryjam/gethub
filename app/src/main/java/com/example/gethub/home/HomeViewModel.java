@@ -18,6 +18,9 @@ public class HomeViewModel extends ViewModel {
     // LiveData for the main UI components
     private final MutableLiveData<User> _user = new MutableLiveData<>();
     public LiveData<User> getUser() { return _user; }
+    public void setUser(User user) {
+        this._user.setValue(user);
+    }
 
     private final MutableLiveData<Integer> _totalRequests = new MutableLiveData<>(0);
     public LiveData<Integer> getTotalRequests() { return _totalRequests; }
@@ -33,6 +36,10 @@ public class HomeViewModel extends ViewModel {
 
     private final MutableLiveData<List<Notification>> _notifications = new MutableLiveData<>();
     public LiveData<List<Notification>> getNotifications() { return _notifications; }
+
+    private final MutableLiveData<User> currentUser = new MutableLiveData<>();
+
+    // --- ADD THIS METHOD ---
 
     /**
      * Initializes the ViewModel by fetching all necessary dashboard data for the user.

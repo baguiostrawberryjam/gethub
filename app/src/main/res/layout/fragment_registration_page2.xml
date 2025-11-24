@@ -139,7 +139,7 @@
                 android:textColor="@color/neutral_deep"
                 android:textSize="16sp"
 
-                android:inputType="textPersonName|textCapWords" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/errEmail"

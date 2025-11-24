@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +74,13 @@ public class ProfileActivity extends AppCompatActivity {
                 user.getAddressNo(), user.getAddressStreet(), user.getAddressBarangay(),
                 user.getAddressCity(), user.getAddressProvince()));
 
+        byte[] profileImage = user.getUserImage();
+        if (profileImage != null && profileImage.length > 0) {
+            Bitmap bitmap = ImageConverter.toBitmap(profileImage);
+            binding.ivProfilePicture.setImageBitmap(bitmap);
+        } else {
+            binding.ivProfilePicture.setImageResource(R.drawable.bg_prof_circular);
+        }
         // Assuming binding includes an ImageView for the profile picture (imgProfile)
         // You would load the image based on user.getProfilePictureUrl() from the ProfileSettings Model
         // For now, this just displays the textual data.

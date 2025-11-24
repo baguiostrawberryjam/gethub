@@ -2,6 +2,7 @@
 package com.example.gethub.home;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.core.content.ContextCompat; // For color tinting
 import com.example.gethub.data.DataRepository;
 import com.example.gethub.models.Notification;
 import com.example.gethub.models.RequestTicket;
+import com.example.gethub.profile.ImageConverter;
 import com.example.gethub.requests.TicketDetailActivity;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -90,6 +92,14 @@ public class DashboardFragment extends Fragment {
                 String welcomeName = user.getFirstName();
                 if (welcomeName == null || welcomeName.isEmpty()) {
                     welcomeName = user.getStudentId();
+                }
+
+                byte[] profileImage = user.getUserImage();
+                if (profileImage != null && profileImage.length > 0) {
+                    Bitmap bitmap = ImageConverter.toBitmap(profileImage);
+                    binding.ibProfile.setImageBitmap(bitmap);
+                } else {
+                    binding.ibProfile.setImageResource(R.drawable.bg_prof_circular);
                 }
                 // binding.tvWelcome.setText(String.format("Welcome, %s!", welcomeName));
             }
